@@ -78,7 +78,9 @@
       color: var(--white);
 background:
   linear-gradient(rgba(30, 45, 35, 0.55), rgba(30, 45, 35, 0.55)),
-  url("hero.jpg") center center / cover no-repeat;
+ background:
+  linear-gradient(rgba(30, 45, 35, 0.55), rgba(30, 45, 35, 0.55)),
+  url("images/hero.jpg") center center / cover no-repeat;center center / cover no-repeat;
     }
 
     .hero-content {
@@ -238,14 +240,18 @@ background:
         font-size: 13px;
       }
 
-      .hero {
-        padding-top: 170px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-    }
+.hero {
+  min-height: 82vh;
+  padding: 140px 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  background:
+    linear-gradient(rgba(30, 45, 35, 0.55), rgba(30, 45, 35, 0.55)),
+    url("images/hero.jpg") center center / cover no-repeat;
+}
   </style>
 </head>
 
