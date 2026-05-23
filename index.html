@@ -254,6 +254,33 @@
         font-size: 13px;
       }
 
+
+    .about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 36px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.about-text {
+  font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .hero {
   min-height: 82vh;
   padding: 140px 24px 80px;
@@ -299,18 +326,29 @@
       </div>
     </section>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-title">
-          <span>ABOUT</span>
-          <h2>長善寺について</h2>
-        </div>
-        <p class="lead">
-          長善寺は、滋賀県高島市にあるお寺です。<br>
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <span>ABOUT</span>
+      <h2>長善寺について</h2>
+    </div>
+
+    <div class="about-layout">
+      <div class="about-image">
+        <img src="images/about.jpg" alt="長善寺の堂内に並ぶ仏像">
+      </div>
+
+      <div class="about-text">
+        <p>
+          長善寺は、滋賀県高島市にあるお寺です。
+        </p>
+        <p>
           このページでは、お寺の歴史、境内の様子、住職の活動などを、少しずつ整えて掲載していきます。
         </p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section id="services">
       <div class="container">
