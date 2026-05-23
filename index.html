@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>長善寺 | 滋賀県高島市のお寺</title>
 
   <style>
@@ -19,6 +20,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
@@ -32,6 +37,12 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ヘッダー */
     header {
       position: fixed;
       top: 0;
@@ -68,18 +79,19 @@
       color: var(--text);
     }
 
-.hero {
-  min-height: 82vh;
-  padding: 140px 24px 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--white);
-  background:
-    linear-gradient(rgba(30, 45, 35, 0.55), rgba(30, 45, 35, 0.55)),
-    url("images/hero.jpg") center center / cover no-repeat;
-}
+    /* トップ */
+    .hero {
+      min-height: 82vh;
+      padding: 140px 24px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(30, 45, 35, 0.55), rgba(30, 45, 35, 0.55)),
+        url("images/hero.jpg") center center / cover no-repeat;
+    }
 
     .hero-content {
       max-width: 800px;
@@ -126,8 +138,10 @@
       border: 1px solid var(--white);
     }
 
+    /* 共通 */
     section {
       padding: 80px 24px;
+      scroll-margin-top: 90px;
     }
 
     .container {
@@ -157,13 +171,31 @@
       color: var(--main);
     }
 
-    .lead {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
+    /* 長善寺について */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .about-image img {
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-text {
       font-size: 17px;
     }
 
+    .about-text p {
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    /* ご相談カード */
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -188,6 +220,7 @@
       margin-bottom: 0;
     }
 
+    /* アクセス・お問い合わせ */
     .info-box {
       background: var(--white);
       padding: 32px;
@@ -195,6 +228,14 @@
       max-width: 760px;
       margin: 0 auto;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .info-box p {
+      margin-top: 0;
+    }
+
+    .info-box p:last-child {
+      margin-bottom: 0;
     }
 
     .info-box dl {
@@ -216,6 +257,7 @@
       color: var(--muted);
     }
 
+    /* フッター */
     footer {
       background: var(--main);
       color: var(--white);
@@ -223,28 +265,22 @@
       padding: 34px 24px;
       font-size: 14px;
     }
-@media (max-width: 768px) {
-  .header-inner {
-    display: block;
-    text-align: center;
-  }
 
-  nav {
-    margin-top: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 13px;
-  }
+    footer p {
+      margin: 4px 0;
+    }
 
-  .hero {
-    padding-top: 170px;
-  }
+    /* スマホ表示 */
+    @media (max-width: 768px) {
+      .header-inner {
+        display: block;
+        text-align: center;
+        padding: 12px 18px;
+      }
 
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
+      .site-title {
+        font-size: 20px;
+      }
 
       nav {
         margin-top: 10px;
@@ -254,45 +290,48 @@
         font-size: 13px;
       }
 
+      .hero {
+        min-height: 78vh;
+        padding: 170px 20px 70px;
+      }
 
-    .about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 36px;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+      .hero-sub {
+        font-size: 14px;
+      }
 
-.about-image img {
-  width: 100%;
-  display: block;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
+      .hero-text {
+        font-size: 16px;
+      }
 
-.about-text {
-  font-size: 17px;
-}
+      .button-area {
+        gap: 12px;
+      }
 
-@media (max-width: 768px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-}
+      .btn {
+        padding: 10px 22px;
+      }
 
-.hero {
-  min-height: 82vh;
-  padding: 140px 24px 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--white);
-  background:
-    linear-gradient(rgba(30, 45, 35, 0.55), rgba(30, 45, 35, 0.55)),
-    url("images/hero.jpg") center center / cover no-repeat;
-}
+      section {
+        padding: 64px 20px;
+      }
+
+      .section-title h2 {
+        font-size: 26px;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .info-box {
+        padding: 26px;
+      }
+    }
   </style>
 </head>
 
@@ -300,6 +339,7 @@
   <header>
     <div class="header-inner">
       <a class="site-title" href="#">長善寺</a>
+
       <nav>
         <a href="#about">長善寺について</a>
         <a href="#services">ご相談</a>
@@ -314,11 +354,14 @@
     <section class="hero">
       <div class="hero-content">
         <p class="hero-sub">滋賀県高島市のお寺</p>
+
         <h1>長善寺</h1>
+
         <p class="hero-text">
           法事・供養のご相談、座禅体験、地域の行事など、<br>
           お寺に関するご案内をこちらにまとめていきます。
         </p>
+
         <div class="button-area">
           <a class="btn" href="#contact">お問い合わせ</a>
           <a class="btn btn-outline" href="#about">長善寺について</a>
@@ -326,29 +369,34 @@
       </div>
     </section>
 
-<section id="about">
-  <div class="container">
-    <div class="section-title">
-      <span>ABOUT</span>
-      <h2>長善寺について</h2>
-    </div>
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>ABOUT</span>
+          <h2>長善寺について</h2>
+        </div>
 
-    <div class="about-layout">
-      <div class="about-image">
-        <img src="images/about.jpg" alt="長善寺の堂内に並ぶ仏像">
-      </div>
+        <div class="about-layout">
+          <div class="about-image">
+            <img src="images/about.jpg" alt="長善寺の堂内に並ぶ仏像">
+          </div>
 
-      <div class="about-text">
-        <p>
-          長善寺は、滋賀県高島市にあるお寺です。
-        </p>
-        <p>
-          このページでは、お寺の歴史、境内の様子、住職の活動などを、少しずつ整えて掲載していきます。
-        </p>
+          <div class="about-text">
+            <p>
+              長善寺は、滋賀県高島市にあるお寺です。
+            </p>
+
+            <p>
+              このページでは、お寺の歴史、境内の様子、住職の活動などを、少しずつ整えて掲載していきます。
+            </p>
+
+            <p>
+              法事・供養のご相談、座禅体験、地域の行事などについても、順次ご案内していきます。
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section id="services">
       <div class="container">
@@ -419,6 +467,7 @@
             法事・供養、座禅体験、見学、その他お寺に関するご相談は、
             公式LINEまたはお問い合わせフォームから受け付ける予定です。
           </p>
+
           <p>
             ※公式LINE・問い合わせフォームのリンクは後で追加します。
           </p>
