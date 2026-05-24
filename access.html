@@ -39,6 +39,11 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     header {
       position: fixed;
       top: 0;
@@ -120,6 +125,7 @@
 
     section {
       padding: 80px 24px;
+      scroll-margin-top: 90px;
     }
 
     .container {
@@ -163,6 +169,14 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
+    .info-box p {
+      margin-top: 0;
+    }
+
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+
     .info-box dl {
       margin: 0;
     }
@@ -195,6 +209,38 @@
       border: 0;
       border-radius: 10px;
       display: block;
+    }
+
+    .parking-box {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .parking-box p {
+      margin-top: 0;
+      color: var(--text);
+    }
+
+    .parking-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .parking-map {
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .parking-map img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      background: var(--white);
     }
 
     .notice {
@@ -307,6 +353,7 @@
       }
 
       .info-box,
+      .parking-box,
       .notice {
         padding: 26px;
       }
@@ -364,7 +411,8 @@
 
               <dt>駐車場</dt>
               <dd>
-                駐車場については、事前にお問い合わせください。
+                駐車場は2か所あります。第1駐車場はお寺の横の道を上がった先にあり、約10台駐車できます。
+                第2駐車場は道沿いにあり、約5台駐車できます。どちらもご利用いただけます。
               </dd>
 
               <dt>お問い合わせ</dt>
@@ -391,6 +439,35 @@
           <p>
             行事や法事、座禅体験などでお越しの場合は、日時や人数によりご案内が変わる場合があります。必要に応じて事前にお問い合わせください。
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="parking">
+      <div class="container">
+        <div class="section-title">
+          <span>PARKING</span>
+          <h2>駐車場案内</h2>
+        </div>
+
+        <div class="parking-box">
+          <p>
+            お車でお越しの方は、下記の駐車場案内図をご確認ください。
+            駐車場は2か所あり、どちらもご利用いただけます。
+          </p>
+
+          <p>
+            第1駐車場は、お寺の横の道をそのまま上がった先にあります。約10台駐車できます。
+            第2駐車場は、道沿いにあります。約5台駐車できます。
+          </p>
+
+          <p>
+            明確な区画線がない場所もありますので、複数台でお越しの場合や場所が分かりにくい場合は、事前にお問い合わせください。
+          </p>
+
+          <div class="parking-map">
+            <img src="images/map.jpeg" alt="長善寺 駐車場案内図">
+          </div>
         </div>
       </div>
     </section>
