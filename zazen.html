@@ -105,8 +105,8 @@
       text-align: center;
       color: var(--white);
       background:
-        linear-gradient(rgba(28, 43, 34, 0.66), rgba(28, 43, 34, 0.66)),
-        linear-gradient(135deg, #3f5f4c, #9c855d);
+        linear-gradient(rgba(28, 43, 34, 0.62), rgba(28, 43, 34, 0.62)),
+        url("zazen3.jpg") center center / cover no-repeat;
     }
 
     .hero-content {
@@ -226,25 +226,35 @@
     }
 
     .photo-card {
+      position: relative;
       min-height: 340px;
       border-radius: 14px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      background:
-        linear-gradient(rgba(47, 79, 63, 0.16), rgba(47, 79, 63, 0.16)),
-        repeating-linear-gradient(
-          45deg,
-          #e8ddca,
-          #e8ddca 14px,
-          #f4eddf 14px,
-          #f4eddf 28px
-        );
-      display: flex;
-      align-items: end;
-      justify-content: flex-start;
+      background: var(--soft);
+    }
+
+    .photo-card.tall {
+      min-height: 460px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      display: block;
+      object-fit: cover;
+    }
+
+    .photo-card.contain img {
+      object-fit: contain;
+      background: #111111;
     }
 
     .photo-label {
+      position: absolute;
+      left: 0;
+      bottom: 0;
       margin: 0;
       padding: 10px 16px;
       background: rgba(255, 255, 255, 0.88);
@@ -252,6 +262,41 @@
       font-size: 13px;
       font-family: sans-serif;
       letter-spacing: 0.08em;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .photo-figure {
+      margin: 0;
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .photo-figure img {
+      width: 100%;
+      height: 280px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .photo-figure.contain img {
+      object-fit: contain;
+      background: #111111;
+    }
+
+    .photo-figure figcaption {
+      padding: 14px 18px 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-family: sans-serif;
+      line-height: 1.7;
     }
 
     .cards {
@@ -527,7 +572,8 @@
         min-height: 260px;
       }
 
-      .cards {
+      .cards,
+      .photo-grid {
         grid-template-columns: 1fr;
       }
 
@@ -548,15 +594,15 @@
     <div class="header-inner">
       <a class="site-title" href="index.html">長善寺</a>
 
-<nav>
-  <a href="index.html#about">長善寺について</a>
-  <a href="zazen.html">座禅体験</a>
-  <a href="kuyo.html">法事・供養</a>
-  <a href="grave.html">永代供養墓</a>
-  <a href="access.html">アクセス</a>
-  <a href="index.html#contact">お問い合わせ</a>
-  <a class="language-link" href="このページに対応する英語ページ">English</a>
-</nav>
+      <nav>
+        <a href="index.html#about">長善寺について</a>
+        <a href="zazen.html">座禅体験</a>
+        <a href="kuyo.html">法事・供養</a>
+        <a href="grave.html">永代供養墓</a>
+        <a href="access.html">アクセス</a>
+        <a href="index.html#contact">お問い合わせ</a>
+        <a class="language-link" href="zazen-en.html">English</a>
+      </nav>
     </div>
   </header>
 
@@ -588,7 +634,8 @@
 
         <div class="two-column">
           <div class="photo-card">
-            <p class="photo-label">写真予定：本堂・座禅スペース</p>
+            <img src="zazen1.jpg" alt="長善寺の本堂に座蒲を並べた座禅体験の会場" />
+            <p class="photo-label">長善寺の座禅体験会場</p>
           </div>
 
           <div class="text-block">
@@ -634,8 +681,9 @@
             </p>
           </div>
 
-          <div class="photo-card">
-            <p class="photo-label">写真予定：住職の案内風景</p>
+          <div class="photo-card tall">
+            <img src="zazen2.jpg" alt="長善寺の本堂で住職が座禅の姿勢を案内している様子" />
+            <p class="photo-label">座り方や姿勢を案内します</p>
           </div>
         </div>
       </div>
@@ -724,7 +772,8 @@
           </div>
 
           <div class="photo-card">
-            <p class="photo-label">写真予定：体験の様子</p>
+            <img src="zazen3.jpg" alt="長善寺の本堂に座禅用の座蒲を円形に並べた様子" />
+            <p class="photo-label">少人数から団体まで調整します</p>
           </div>
         </div>
       </div>
@@ -832,6 +881,18 @@
           長善寺での座禅体験のほか、地域団体、福祉関係、教育関係、研修、交流イベントなどでの座禅体験についても、内容に応じてご相談を受け付けます。
         </p>
 
+        <div class="photo-grid">
+          <figure class="photo-figure">
+            <img src="zazen4.JPG" alt="親子向けの座禅会で住職が参加者に説明している様子" />
+            <figcaption>親子向け・地域向けなど、対象に合わせた座禅会もご相談ください。</figcaption>
+          </figure>
+
+          <figure class="photo-figure contain">
+            <img src="zazen5.jpg" alt="子どもたちが座禅を体験している様子" />
+            <figcaption>教育関係・子ども向けの体験は、年齢や人数に応じて内容を調整します。</figcaption>
+          </figure>
+        </div>
+
         <div class="price-grid">
           <div class="price-card">
             <h3>地域団体・福祉関係・教育関係</h3>
@@ -853,6 +914,53 @@
           <p>
             出張での実施は、移動時間・準備・会場条件によって対応可否が変わります。
             まずは目的、人数、希望日時、実施場所を添えてご相談ください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="custom">
+      <div class="container">
+        <div class="section-title">
+          <span>CUSTOM EXPERIENCE</span>
+          <h2>ご希望に応じた体験について</h2>
+        </div>
+
+        <p class="lead">
+          通常の座禅体験のほか、ご希望に応じて、地域の自然や文化と組み合わせた体験もご相談いただけます。
+          内容・人数・時期・場所によって対応できる範囲が変わるため、まずは希望内容をお知らせください。
+        </p>
+
+        <div class="cards" style="margin-top: 34px;">
+          <div class="card">
+            <h3>自然の中での座禅</h3>
+            <p>
+              メタセコイヤ並木や琵琶湖周辺など、地域の自然と組み合わせた静かな時間を検討できます。
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>散策・サイクリングとの組み合わせ</h3>
+            <p>
+              マキノ周辺の散策やサイクリングと座禅を組み合わせた体験も、条件に応じて相談できます。
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>写仏・お茶など</h3>
+            <p>
+              写仏やお茶の時間など、座禅以外の体験を組み合わせたい場合も、事前にご相談ください。
+            </p>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top: 34px;">
+          <p>
+            これらは常時実施している固定メニューではありません。
+            天候、会場、人数、法務の予定などによって対応できない場合があります。
+          </p>
+          <p>
+            「こういう体験はできますか」という段階でも構いませんので、まずはお問い合わせください。
           </p>
         </div>
       </div>
