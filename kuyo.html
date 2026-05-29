@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -76,7 +76,7 @@
       white-space: nowrap;
     }
 
-    nav {
+    .site-nav {
       display: flex;
       align-items: center;
       gap: 18px;
@@ -86,20 +86,30 @@
       justify-content: flex-end;
     }
 
-    nav a {
+    .site-nav a {
       color: var(--text);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
     }
 
-    nav a:hover {
+    .site-nav a:hover,
+    .site-nav a.current {
       color: var(--sub);
+      border-bottom: 1px solid var(--sub);
     }
 
-    .language-link {
+    .site-nav .language-link {
       padding: 5px 12px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--white);
       color: var(--main);
+    }
+
+    .site-nav .language-link:hover {
+      background: var(--main);
+      color: var(--white);
+      border-color: var(--main);
     }
 
     .hero {
@@ -291,6 +301,31 @@
       margin-bottom: 0;
     }
 
+    .price-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      background: var(--soft);
+      color: var(--text);
+    }
+
+    .price-item span:first-child {
+      color: var(--main);
+      font-weight: bold;
+    }
+
+    .price-item span:last-child {
+      white-space: nowrap;
+    }
+
     .flow {
       display: grid;
       gap: 18px;
@@ -414,7 +449,7 @@
         font-size: 20px;
       }
 
-      nav {
+      .site-nav {
         margin-top: 10px;
         justify-content: center;
         gap: 10px 12px;
@@ -456,6 +491,19 @@
       .flow-item {
         padding: 22px 20px 22px 74px;
       }
+
+      .price-item {
+        display: block;
+      }
+
+      .price-item span {
+        display: block;
+      }
+
+      .price-item span:last-child {
+        margin-top: 4px;
+        white-space: normal;
+      }
     }
   </style>
 </head>
@@ -465,10 +513,10 @@
     <div class="header-inner">
       <a class="site-title" href="index.html">長善寺</a>
 
-      <nav>
+      <nav class="site-nav">
         <a href="index.html#about">長善寺について</a>
         <a href="zazen.html">座禅体験</a>
-        <a href="kuyo.html">法事・供養</a>
+        <a href="kuyo.html" class="current">法事・供養</a>
         <a href="grave.html">永代供養墓</a>
         <a href="access.html">アクセス</a>
         <a href="index.html#contact">お問い合わせ</a>
@@ -614,13 +662,26 @@
         </div>
 
         <div class="notice">
-          <h3>費用の目安</h3>
+          <h3>お布施の目安</h3>
           <p>
-            内容、場所、準備の有無によって異なります。
-            法事・供養・祈祷の費用については、ご相談時に内容を確認したうえでご案内します。
+            お布施については、お気持ちでお納めいただいております。
+            初めての方にも分かりやすいよう、目安として下記をご案内しています。
           </p>
+
+          <div class="price-list">
+            <div class="price-item">
+              <span>法事・供養</span>
+              <span>一万円より</span>
+            </div>
+            <div class="price-item">
+              <span>墓前での読経・供養</span>
+              <span>五千円より</span>
+            </div>
+          </div>
+
           <p>
-            ※金額が決まっている内容については、後ほどここに掲載します。
+            内容、場所、準備の有無によって異なる場合があります。
+            詳細はご相談時に確認したうえでご案内します。
           </p>
         </div>
       </div>
@@ -705,7 +766,9 @@
           <details>
             <summary>費用はどのくらいですか。</summary>
             <p>
-              内容によって異なります。ご相談時に確認したうえでご案内します。
+              お布施はお気持ちでお納めいただいております。
+              目安として、法事・供養は一万円より、墓前での読経・供養は五千円より承っております。
+              内容によって異なる場合がありますので、詳細はご相談時にご案内します。
             </p>
           </details>
 
@@ -740,3 +803,4 @@
   </footer>
 </body>
 </html>
+```
