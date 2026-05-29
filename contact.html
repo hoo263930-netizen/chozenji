@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>お問い合わせ | 長善寺</title>
+  <meta name="description" content="滋賀県高島市マキノ町の長善寺へのお問い合わせページです。法事・供養、永代供養墓、座禅体験、見学などについてご相談ください。" />
+
+  <style>
+    :root {
+      --main: #2f4f3f;
+      --main-dark: #243b30;
+      --sub: #8a6f45;
+      --bg: #f7f4ee;
+      --white: #ffffff;
+      --text: #2b2b2b;
+      --muted: #666666;
+      --line: rgba(0, 0, 0, 0.08);
+      --soft: #eee6da;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .site-title {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      color: var(--main);
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      font-family: sans-serif;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      color: var(--text);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.current {
+      color: var(--sub);
+      border-bottom: 1px solid var(--sub);
+    }
+
+    .site-nav .language-link {
+      padding: 5px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--main);
+    }
+
+    .site-nav .language-link:hover {
+      background: var(--main);
+      color: var(--white);
+      border-color: var(--main);
+    }
+
+    .hero {
+      min-height: 320px;
+      padding: 80px 24px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(28, 43, 34, 0.58), rgba(28, 43, 34, 0.62)),
+        url("images/hero.jpg") center center / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 820px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      margin-bottom: 12px;
+      font-family: sans-serif;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      margin: 0 0 18px;
+      letter-spacing: 0.12em;
+      font-weight: normal;
+    }
+
+    .hero-text {
+      font-size: 17px;
+      margin: 0 auto;
+      max-width: 720px;
+      line-height: 2;
+    }
+
+    main {
+      padding: 72px 24px 0;
+    }
+
+    section {
+      padding: 0 0 72px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title span {
+      display: block;
+      color: var(--sub);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      font-family: sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin: 0;
+      font-weight: normal;
+      letter-spacing: 0.12em;
+      color: var(--main);
+    }
+
+    .lead {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      font-size: 17px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    form {
+      display: grid;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: var(--main);
+      margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      border: 1px solid #d8d2c6;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 16px;
+      background: var(--white);
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .required {
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 12px;
+      color: #ffffff;
+      background: var(--sub);
+      padding: 1px 7px;
+      border-radius: 999px;
+      vertical-align: middle;
+      font-family: sans-serif;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 6px 0 0;
+    }
+
+    button {
+      width: fit-content;
+      background: var(--main);
+      color: var(--white);
+      font-weight: bold;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: sans-serif;
+      font-size: 16px;
+    }
+
+    button:hover {
+      opacity: 0.88;
+    }
+
+    .info-box {
+      background: var(--white);
+      padding: 26px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-left: 4px solid var(--sub);
+    }
+
+    .info-box h3 {
+      margin: 0 0 12px;
+      color: var(--main);
+      font-size: 21px;
+      letter-spacing: 0.06em;
+    }
+
+    .info-box p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .info-box ul {
+      margin: 0;
+      padding-left: 1.2em;
+      color: var(--muted);
+    }
+
+    .info-box li {
+      margin: 4px 0;
+    }
+
+    .line-button {
+      display: inline-block;
+      background: #06c755;
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-family: sans-serif;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .line-button:hover {
+      opacity: 0.88;
+    }
+
+    footer {
+      background: var(--main-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 34px 24px;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .header-inner {
+        display: block;
+        text-align: center;
+        padding: 12px 18px;
+      }
+
+      .site-title {
+        font-size: 20px;
+      }
+
+      .site-nav {
+        margin-top: 10px;
+        justify-content: center;
+        gap: 10px 12px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 300px;
+        padding: 64px 20px 58px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 56px 20px 0;
+      }
+
+      section {
+        padding-bottom: 56px;
+      }
+
+      .section-title h2 {
+        font-size: 26px;
+      }
+
+      .card,
+      .info-box {
+        padding: 24px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="site-title" href="index.html">長善寺</a>
+
+      <nav class="site-nav">
+        <a href="index.html#about">長善寺について</a>
+        <a href="zazen.html">座禅体験</a>
+        <a href="kuyo.html">法事・供養</a>
+        <a href="grave.html">永代供養墓</a>
+        <a href="access.html">アクセス</a>
+        <a href="contact.html" class="current">お問い合わせ</a>
+        <a class="language-link" href="contact-en.html">English</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-sub">CONTACT</p>
+      <h1>お問い合わせ</h1>
+      <p class="hero-text">
+        法事・供養、永代供養墓、座禅体験、見学などについて、こちらからご相談ください。
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <span>FORM</span>
+          <h2>お問い合わせフォーム</h2>
+        </div>
+
+        <div class="contact-layout">
+          <div class="card">
+            <p class="lead">
+              内容がはっきり決まっていない段階でも構いません。
+              分かる範囲でご記入ください。
+            </p>
+
+            <form action="https://formspree.io/f/mrbybkoe" method="POST">
+              <div>
+                <label for="name">お名前<span class="required">必須</span></label>
+                <input type="text" id="name" name="お名前" required>
+              </div>
+
+              <div>
+                <label for="email">メールアドレス<span class="required">必須</span></label>
+                <input type="email" id="email" name="メールアドレス" required>
+              </div>
+
+              <div>
+                <label for="tel">電話番号</label>
+                <input type="tel" id="tel" name="電話番号" placeholder="任意">
+                <p class="form-note">電話での連絡をご希望の場合はご記入ください。</p>
+              </div>
+
+              <div>
+                <label for="category">ご相談内容<span class="required">必須</span></label>
+                <select id="category" name="ご相談内容" required>
+                  <option value="">選択してください</option>
+                  <option value="法事・供養について">法事・供養について</option>
+                  <option value="永代供養墓・個人墓について">永代供養墓・個人墓について</option>
+                  <option value="座禅体験について">座禅体験について</option>
+                  <option value="見学・アクセスについて">見学・アクセスについて</option>
+                  <option value="その他">その他</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="schedule">希望時期・候補日</label>
+                <input type="text" id="schedule" name="希望時期・候補日" placeholder="例：6月中、土日の午前、○月○日ごろ など">
+              </div>
+
+              <div>
+                <label for="message">お問い合わせ内容<span class="required">必須</span></label>
+                <textarea id="message" name="お問い合わせ内容" required placeholder="例：父の三回忌について相談したいです。日程はまだ決まっていませんが、家族だけで行いたいと考えています。"></textarea>
+              </div>
+
+              <input type="hidden" name="_subject" value="長善寺HPからのお問い合わせ">
+              <input type="hidden" name="_redirect" value="https://hoo263930-netizen.github.io/chozenji/contact-sent.html">
+              <input type="text" name="_gotcha" style="display:none">
+
+              <button type="submit">送信する</button>
+
+              <p class="form-note">
+                ※個人情報は返信目的のみに使用します。<br>
+                ※数日たっても返信がない場合は、メールアドレスの入力間違いや迷惑メールフォルダをご確認ください。
+              </p>
+            </form>
+          </div>
+
+          <aside class="info-box">
+            <h3>ご相談前に分かるとよいこと</h3>
+            <p>
+              すべて決まっていなくても構いません。分かる範囲でお知らせください。
+            </p>
+            <ul>
+              <li>相談したい内容</li>
+              <li>希望される時期や候補日</li>
+              <li>人数やご家族の状況</li>
+              <li>法事・供養を行いたい場所</li>
+              <li>お墓や納骨に関する状況</li>
+              <li>座禅体験の場合は人数・希望時間</li>
+            </ul>
+
+            <h3 style="margin-top:24px;">公式LINEでの相談</h3>
+            <p>
+              簡単な確認や日程調整は、公式LINEからもご相談いただけます。
+            </p>
+            <a class="line-button" href="https://lin.ee/ZITRIHg" target="_blank" rel="noopener">公式LINEで相談する</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>長善寺</p>
+    <p>〒520-1803 滋賀県高島市マキノ町小荒路581</p>
+    <p>&copy; Chozenji. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
