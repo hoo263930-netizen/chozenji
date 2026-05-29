@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>永代供養墓・個人墓 | 長善寺</title>
   <meta name="description" content="滋賀県高島市マキノ町の長善寺では、永代供養墓と個人墓のご案内をしています。お墓の承継、納骨、将来の供養についてご相談ください。">
 
   <style>
     :root {
-      --main: #3f4a3c;
-      --sub: #6f7b68;
-      --bg: #f7f5ef;
+      --main: #2f4f3f;
+      --main-dark: #243b30;
+      --sub: #8a6f45;
+      --bg: #f7f4ee;
       --white: #ffffff;
-      --line: #ddd8cc;
-      --accent: #8a6f4d;
-      --text: #2f302c;
+      --text: #2b2b2b;
+      --muted: #666666;
+      --line: rgba(0, 0, 0, 0.08);
+      --soft: #eee6da;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -36,21 +43,23 @@
 
     img {
       max-width: 100%;
+      height: auto;
       display: block;
     }
 
     header {
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
       z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
     .header-inner {
-      max-width: 1080px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 14px 20px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -58,76 +67,82 @@
     }
 
     .site-title {
-      font-size: 1.25rem;
+      font-size: 22px;
+      font-weight: bold;
       letter-spacing: 0.12em;
       color: var(--main);
-      font-weight: bold;
       white-space: nowrap;
     }
 
     .site-nav {
       display: flex;
+      align-items: center;
       gap: 18px;
-      font-size: 0.95rem;
-      color: var(--main);
+      font-size: 14px;
+      font-family: sans-serif;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .site-nav a {
+      color: var(--text);
       padding-bottom: 3px;
       border-bottom: 1px solid transparent;
     }
 
     .site-nav a:hover,
     .site-nav a.current {
-      border-bottom: 1px solid var(--main);
+      color: var(--sub);
+      border-bottom: 1px solid var(--sub);
     }
 
-    .lang-link {
-      border: 1px solid var(--main);
+    .site-nav .language-link {
+      padding: 5px 12px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 2px 12px 3px;
+      background: var(--white);
+      color: var(--main);
     }
 
-    .site-nav .lang-link:hover {
+    .site-nav .language-link:hover {
       background: var(--main);
       color: var(--white);
-      border-bottom: 1px solid var(--main);
+      border-color: var(--main);
     }
 
     .hero {
-      min-height: 360px;
-      background:
-        linear-gradient(rgba(30, 35, 28, 0.42), rgba(30, 35, 28, 0.42)),
-        url("images/grave1.jpg") center/cover no-repeat;
+      min-height: 420px;
+      padding: 86px 24px 78px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: var(--white);
-      padding: 80px 20px;
+      background:
+        linear-gradient(rgba(28, 43, 34, 0.46), rgba(28, 43, 34, 0.56)),
+        url("images/grave1.jpg") center center / cover no-repeat;
     }
 
     .hero-content {
-      max-width: 780px;
+      max-width: 820px;
     }
 
     .hero-sub {
-      font-size: 0.95rem;
-      letter-spacing: 0.16em;
-      margin-bottom: 12px;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      margin-bottom: 14px;
+      font-family: sans-serif;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(34px, 6vw, 58px);
       letter-spacing: 0.14em;
       margin: 0 0 18px;
       font-weight: normal;
     }
 
     .hero-text {
-      font-size: 1rem;
+      font-size: 17px;
       line-height: 2;
       margin: 0;
     }
@@ -135,26 +150,27 @@
     main {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 64px 20px 80px;
+      padding: 72px 24px 80px;
     }
 
     section {
       margin-bottom: 72px;
+      scroll-margin-top: 90px;
     }
 
     .section-title {
       text-align: center;
       color: var(--main);
-      font-size: 1.75rem;
+      font-size: 30px;
       letter-spacing: 0.12em;
-      margin: 0 0 28px;
+      margin: 0 0 32px;
       font-weight: normal;
     }
 
     .lead {
       max-width: 780px;
       margin: 0 auto 16px;
-      font-size: 1.05rem;
+      font-size: 17px;
     }
 
     .lead:last-child {
@@ -166,7 +182,7 @@
       border: 1px solid var(--line);
       padding: 32px;
       border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
     .grave-grid {
@@ -180,7 +196,7 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
     .grave-card img {
@@ -196,33 +212,41 @@
     .grave-card h3 {
       margin: 0 0 14px;
       color: var(--main);
-      font-size: 1.35rem;
+      font-size: 22px;
       letter-spacing: 0.08em;
     }
 
     .grave-card p {
       margin: 0 0 18px;
+      color: var(--muted);
     }
 
     .price-box {
-      background: #eee9dc;
-      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      border-left: 4px solid var(--sub);
       padding: 16px 18px;
       border-radius: 8px;
       margin-top: 18px;
     }
 
     .price-label {
-      font-size: 0.9rem;
-      color: var(--sub);
+      font-size: 14px;
+      color: var(--muted);
       margin-bottom: 4px;
+      font-family: sans-serif;
     }
 
     .price {
-      font-size: 1.4rem;
+      font-size: 24px;
       color: var(--main);
       font-weight: bold;
       letter-spacing: 0.05em;
+    }
+
+    .price-note {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     .button {
@@ -231,12 +255,14 @@
       color: var(--white);
       padding: 11px 24px;
       border-radius: 999px;
-      font-size: 0.95rem;
-      margin-top: 8px;
+      font-size: 15px;
+      margin-top: 12px;
+      font-family: sans-serif;
+      font-weight: bold;
     }
 
     .button:hover {
-      opacity: 0.86;
+      opacity: 0.88;
     }
 
     .table-wrap {
@@ -244,6 +270,7 @@
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
     table {
@@ -261,10 +288,14 @@
     }
 
     th {
-      background: #eee9dc;
+      background: var(--soft);
       color: var(--main);
       font-weight: normal;
       white-space: nowrap;
+    }
+
+    td {
+      color: var(--muted);
     }
 
     tr:last-child th,
@@ -284,6 +315,7 @@
       border-radius: 12px;
       padding: 22px 24px 22px 74px;
       position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     }
 
     .flow-item::before {
@@ -300,17 +332,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.95rem;
+      font-size: 15px;
+      font-family: sans-serif;
+      font-weight: bold;
     }
 
     .flow-item h3 {
       margin: 0 0 6px;
       color: var(--main);
-      font-size: 1.1rem;
+      font-size: 18px;
     }
 
     .flow-item p {
       margin: 0;
+      color: var(--muted);
     }
 
     .faq-list {
@@ -321,24 +356,25 @@
     .faq-item h3 {
       margin: 0 0 8px;
       color: var(--main);
-      font-size: 1.08rem;
+      font-size: 18px;
     }
 
     .faq-item p {
       margin: 0;
+      color: var(--muted);
     }
 
     .cta {
       text-align: center;
       background: var(--main);
       color: var(--white);
-      padding: 44px 28px;
+      padding: 48px 28px;
       border-radius: 18px;
     }
 
     .cta h2 {
       margin: 0 0 16px;
-      font-size: 1.6rem;
+      font-size: 28px;
       font-weight: normal;
       letter-spacing: 0.1em;
     }
@@ -368,36 +404,62 @@
     }
 
     footer {
-      background: #2f352c;
+      background: var(--main-dark);
       color: var(--white);
       text-align: center;
-      padding: 28px 20px;
-      font-size: 0.9rem;
+      padding: 34px 24px;
+      font-size: 14px;
     }
 
     footer p {
       margin: 4px 0;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 820px) {
       .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        display: block;
+        text-align: center;
+        padding: 12px 18px;
+      }
+
+      .site-title {
+        font-size: 20px;
       }
 
       .site-nav {
-        justify-content: flex-start;
-        gap: 12px 16px;
-        font-size: 0.9rem;
+        margin-top: 10px;
+        justify-content: center;
+        gap: 10px 12px;
+        font-size: 13px;
       }
 
       .hero {
-        min-height: 320px;
-        padding: 64px 20px;
+        min-height: 360px;
+        padding: 64px 20px 58px;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: clamp(30px, 8vw, 42px);
+      }
+
+      .hero-text {
+        font-size: 16px;
       }
 
       main {
-        padding: 48px 18px 64px;
+        padding: 56px 20px 64px;
+      }
+
+      section {
+        margin-bottom: 64px;
+      }
+
+      .section-title {
+        font-size: 26px;
       }
 
       .grave-grid {
@@ -409,7 +471,7 @@
       }
 
       .card {
-        padding: 24px;
+        padding: 26px;
       }
 
       .flow-item {
@@ -430,8 +492,8 @@
         <a href="kuyo.html">法事・供養</a>
         <a href="grave.html" class="current">永代供養墓</a>
         <a href="access.html">アクセス</a>
-        <a href="index.html#contact">お問い合わせ</a>
-        <a href="grave-en.html" class="lang-link">English</a>
+        <a href="contact.html">お問い合わせ</a>
+        <a href="grave-en.html" class="language-link">English</a>
       </nav>
     </div>
   </header>
@@ -456,8 +518,11 @@
           「永代供養墓」と「個人墓」の二つをご案内しています。
         </p>
         <p class="lead">
-          ご家族の状況やご希望によって、合う形は異なります。
-          見学やご相談を通して、費用や納骨までの流れをご説明します。
+          お墓を継ぐ方がいない場合、家族に管理の負担を残したくない場合、個人やご家族ごとのお墓を希望される場合など、
+          状況に合わせてご相談いただけます。
+        </p>
+        <p class="lead">
+          見学やご相談を通して、費用、納骨までの流れ、今後の供養についてご説明します。
         </p>
       </div>
     </section>
@@ -481,10 +546,11 @@
 
             <div class="price-box">
               <div class="price-label">費用</div>
-              <div class="price">〇〇円</div>
+              <div class="price">20万円</div>
+              <div class="price-note">納骨や供養の内容については、ご相談時に説明します。</div>
             </div>
 
-            <a href="#contact" class="button">相談する</a>
+            <a href="contact.html" class="button">相談する</a>
           </div>
         </article>
 
@@ -497,15 +563,17 @@
               ご家族でお参りしながら、これまで通りのお墓の形を大切にしたい方に向いています。
             </p>
             <p>
-              区画、墓石、管理の内容などについては、実際の場所をご案内しながらご説明します。
+              区画には限りがあります。ご希望の場合は、実際の場所をご案内しながら、
+              使用条件や管理の内容についてご説明します。
             </p>
 
             <div class="price-box">
               <div class="price-label">費用</div>
-              <div class="price">〇〇円</div>
+              <div class="price">50万円</div>
+              <div class="price-note">個人墓は数に限りがあります。空き状況はお問い合わせください。</div>
             </div>
 
-            <a href="#contact" class="button">相談する</a>
+            <a href="contact.html" class="button">相談する</a>
           </div>
         </article>
       </div>
@@ -530,7 +598,8 @@
             </td>
             <td>
               個人や家族ごとのお墓を持ちたい方。<br>
-              従来のお墓の形を大切にしたい方。
+              従来のお墓の形を大切にしたい方。<br>
+              家族でお参りする場所を持ちたい方。
             </td>
           </tr>
           <tr>
@@ -545,8 +614,13 @@
           </tr>
           <tr>
             <th>費用</th>
-            <td>〇〇円</td>
-            <td>〇〇円</td>
+            <td>20万円</td>
+            <td>50万円</td>
+          </tr>
+          <tr>
+            <th>数・区画</th>
+            <td>ご相談時にご案内します。</td>
+            <td>数に限りがあります。空き状況はお問い合わせください。</td>
           </tr>
           <tr>
             <th>見学</th>
@@ -564,7 +638,7 @@
         <div class="flow-item">
           <h3>お問い合わせ</h3>
           <p>
-            公式LINEまたはお問い合わせよりご連絡ください。
+            お問い合わせフォームよりご連絡ください。
             永代供養墓・個人墓のどちらを検討しているか、決まっていなくても構いません。
           </p>
         </div>
@@ -626,10 +700,10 @@
         </div>
 
         <div class="faq-item">
-          <h3>費用について詳しく知りたいです。</h3>
+          <h3>費用はいくらですか。</h3>
           <p>
-            費用はお墓の種類や内容によって異なります。
-            詳細は見学・相談時にご案内します。
+            永代供養墓は20万円、個人墓は50万円です。
+            個人墓は数に限りがありますので、空き状況についてはお問い合わせください。
           </p>
         </div>
       </div>
@@ -643,7 +717,7 @@
       </p>
 
       <div class="button-wrap">
-        <a href="index.html#contact" class="button">公式LINE・お問い合わせ</a>
+        <a href="contact.html" class="button">お問い合わせフォームへ</a>
         <a href="access.html" class="button secondary">アクセスを見る</a>
       </div>
     </section>
@@ -652,6 +726,7 @@
   <footer>
     <p>長善寺</p>
     <p>〒520-1803 滋賀県高島市マキノ町小荒路581</p>
+    <p>&copy; Chozenji. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
