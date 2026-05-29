@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>長善寺 | 滋賀県高島市のお寺</title>
+  <meta name="description" content="滋賀県高島市マキノ町の長善寺公式ホームページです。座禅体験、法事・供養、永代供養墓、アクセス、お問い合わせについてご案内します。" />
 
   <style>
     :root {
@@ -16,6 +17,7 @@
       --text: #2b2b2b;
       --muted: #666666;
       --line: rgba(0, 0, 0, 0.08);
+      --soft: #eee6da;
     }
 
     * {
@@ -42,25 +44,26 @@
     img {
       max-width: 100%;
       height: auto;
+      display: block;
     }
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.93);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
     .header-inner {
-      max-width: 1120px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .site-title {
@@ -71,67 +74,87 @@
       white-space: nowrap;
     }
 
-    nav {
+    .site-nav {
       display: flex;
-      gap: 20px;
-      font-size: 14px;
       align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      font-family: sans-serif;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    nav a {
+    .site-nav a {
       color: var(--text);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
     }
 
-    .language-link {
-      padding: 4px 10px;
+    .site-nav a:hover,
+    .site-nav a.current {
+      color: var(--sub);
+      border-bottom: 1px solid var(--sub);
+    }
+
+    .site-nav .language-link {
+      padding: 5px 12px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      font-family: sans-serif;
-      font-size: 12px;
+      background: var(--white);
       color: var(--main);
-      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .site-nav .language-link:hover {
+      background: var(--main);
+      color: var(--white);
+      border-color: var(--main);
     }
 
     .hero {
-      min-height: 84vh;
-      padding: 150px 24px 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--white);
+      padding: 80px 24px 88px;
       background:
-        linear-gradient(rgba(28, 43, 34, 0.56), rgba(28, 43, 34, 0.56)),
-        url("images/hero.jpg") center center / cover no-repeat,
-        linear-gradient(135deg, #3f5f4c, #9c855d);
+        linear-gradient(135deg, rgba(47, 79, 63, 0.96), rgba(36, 59, 48, 0.94));
+      color: var(--white);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 46px;
+      align-items: center;
     }
 
     .hero-content {
-      max-width: 860px;
+      max-width: 560px;
     }
 
     .hero-sub {
       font-size: 15px;
       letter-spacing: 0.18em;
-      margin-bottom: 14px;
+      margin: 0 0 14px;
       font-family: sans-serif;
+      color: rgba(255, 255, 255, 0.84);
     }
 
     .hero h1 {
-      font-size: clamp(38px, 7vw, 72px);
-      margin: 0 0 18px;
+      font-size: clamp(42px, 7vw, 74px);
+      margin: 0 0 22px;
       letter-spacing: 0.18em;
       font-weight: normal;
+      line-height: 1.25;
     }
 
     .hero-text {
       font-size: 18px;
-      margin-bottom: 32px;
+      margin: 0 0 32px;
+      line-height: 2;
+      color: rgba(255, 255, 255, 0.92);
     }
 
     .button-area {
       display: flex;
-      justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
     }
@@ -144,12 +167,45 @@
       color: var(--main);
       font-weight: bold;
       font-family: sans-serif;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      opacity: 0.88;
     }
 
     .btn-outline {
       background: transparent;
       color: var(--white);
       border: 1px solid var(--white);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 22px -18px -18px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 18px;
+    }
+
+    .hero-visual img {
+      position: relative;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      object-fit: cover;
+    }
+
+    .hero-caption {
+      margin: 12px 0 0;
+      font-size: 13px;
+      font-family: sans-serif;
+      color: rgba(255, 255, 255, 0.78);
+      text-align: right;
     }
 
     section {
@@ -199,7 +255,6 @@
     }
 
     .about-image img {
-      display: block;
       width: 100%;
       border-radius: 14px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -212,6 +267,45 @@
     .about-text p {
       margin-top: 0;
       margin-bottom: 18px;
+    }
+
+    .symbol-section {
+      background: #efe8dc;
+    }
+
+    .symbol-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 34px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .symbol-text h2 {
+      margin: 0 0 18px;
+      color: var(--main);
+      font-size: 28px;
+      font-weight: normal;
+      letter-spacing: 0.1em;
+    }
+
+    .symbol-text p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .symbol-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .symbol-image img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     .guide-grid {
@@ -286,13 +380,25 @@
       margin-bottom: 0;
     }
 
+    .contact-section {
+      background: var(--main);
+      color: var(--white);
+    }
+
+    .contact-section .section-title span,
+    .contact-section .section-title h2 {
+      color: var(--white);
+    }
+
     .info-box {
       background: var(--white);
+      color: var(--text);
       padding: 32px;
       border-radius: 14px;
       max-width: 820px;
       margin: 0 auto;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      text-align: center;
     }
 
     .info-box p {
@@ -340,13 +446,35 @@
       margin: 4px 0;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        max-width: 760px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .button-area {
+        justify-content: center;
+      }
+
+      .hero-caption {
+        text-align: center;
+      }
+
       .guide-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .symbol-box {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
       .header-inner {
         display: block;
         text-align: center;
@@ -357,22 +485,15 @@
         font-size: 20px;
       }
 
-      nav {
+      .site-nav {
         margin-top: 10px;
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 11px;
+        gap: 10px 12px;
         font-size: 13px;
       }
 
-      .language-link {
-        font-size: 11px;
-        padding: 3px 9px;
-      }
-
       .hero {
-        min-height: 78vh;
-        padding: 175px 20px 72px;
+        padding: 56px 20px 66px;
       }
 
       .hero-sub {
@@ -381,6 +502,10 @@
 
       .hero-text {
         font-size: 16px;
+      }
+
+      .hero-visual::before {
+        display: none;
       }
 
       .button-area {
@@ -413,7 +538,8 @@
       }
 
       .visitor-box,
-      .info-box {
+      .info-box,
+      .symbol-box {
         padding: 26px;
       }
     }
@@ -425,33 +551,40 @@
     <div class="header-inner">
       <a class="site-title" href="index.html">長善寺</a>
 
-<nav>
-  <a href="index.html#about">長善寺について</a>
-  <a href="zazen.html">座禅体験</a>
-  <a href="kuyo.html">法事・供養</a>
-  <a href="grave.html">永代供養墓</a>
-  <a href="access.html">アクセス</a>
-  <a href="index.html#contact">お問い合わせ</a>
-  <a class="language-link" href="index-en.html">English</a>
-</nav>
+      <nav class="site-nav">
+        <a href="index.html#about" class="current">長善寺について</a>
+        <a href="zazen.html">座禅体験</a>
+        <a href="kuyo.html">法事・供養</a>
+        <a href="grave.html">永代供養墓</a>
+        <a href="access.html">アクセス</a>
+        <a href="contact.html">お問い合わせ</a>
+        <a class="language-link" href="index-en.html">English</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-content">
-        <p class="hero-sub">滋賀県高島市のお寺</p>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-sub">滋賀県高島市のお寺</p>
 
-        <h1>長善寺</h1>
+          <h1>長善寺</h1>
 
-        <p class="hero-text">
-          座禅体験、法事・供養、永代供養墓のご相談など、<br>
-          長善寺に関するご案内をこちらにまとめています。
-        </p>
+          <p class="hero-text">
+            座禅体験、法事・供養、永代供養墓のご相談など、<br>
+            長善寺に関するご案内をこちらにまとめています。
+          </p>
 
-        <div class="button-area">
-          <a class="btn" href="zazen.html">座禅体験を見る</a>
-          <a class="btn btn-outline" href="access.html">アクセスを見る</a>
+          <div class="button-area">
+            <a class="btn" href="zazen.html">座禅体験を見る</a>
+            <a class="btn btn-outline" href="contact.html">お問い合わせ</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="images/kannon-main.jpg" alt="長善寺の境内に立つ観音像">
+          <p class="hero-caption">長善寺の境内に立つ観音像</p>
         </div>
       </div>
     </section>
@@ -480,6 +613,34 @@
             <p>
               観光寺院として大きく開かれた場所というよりも、地域の人や訪れる人が、相談・体験・供養を通して関われるお寺でありたいと考えています。
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="symbol-section">
+      <div class="container">
+        <div class="symbol-box">
+          <div class="symbol-text">
+            <h2>長善寺の境内</h2>
+            <p>
+              境内には観音像が立ち、訪れる方を静かに迎えています。
+            </p>
+            <p>
+              長善寺は、法事や供養の場であると同時に、座禅体験や見学を通して、お寺の空気に触れていただける場所でもあります。
+            </p>
+            <p>
+              初めてお越しの方は、アクセスページで所在地や駐車場をご確認ください。
+            </p>
+
+            <div class="contact-actions">
+              <a href="access.html">アクセスを見る</a>
+              <a class="secondary" href="contact.html">問い合わせる</a>
+            </div>
+          </div>
+
+          <div class="symbol-image">
+            <img src="images/kannon-main.jpg" alt="長善寺の観音像と境内の風景">
           </div>
         </div>
       </div>
@@ -524,7 +685,7 @@
             <span>ACCESS</span>
             <h3>アクセス</h3>
             <p>
-              所在地、Googleマップ、駐車場、問い合わせ方法など、長善寺へお越しの際に必要な情報をまとめます。
+              所在地、Googleマップ、駐車場、問い合わせ方法など、長善寺へお越しの際に必要な情報をまとめています。
             </p>
             <a href="access.html">詳しく見る →</a>
           </div>
@@ -545,13 +706,13 @@
             <li>法事・供養について相談したい方は、「法事・供養」ページをご覧ください。</li>
             <li>お墓や将来の供養について相談したい方は、「永代供養墓」ページをご覧ください。</li>
             <li>場所や駐車場を確認したい方は、「アクセス」ページをご覧ください。</li>
-            <li>英語での座禅体験案内は、まず英語ページからご確認ください。</li>
+            <li>英語での座禅体験案内は、英語ページからご確認ください。</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact-section">
       <div class="container">
         <div class="section-title">
           <span>CONTACT</span>
@@ -560,15 +721,15 @@
 
         <div class="info-box">
           <p>
-            座禅体験、法事・供養、永代供養墓、見学、その他お寺に関するご相談は、お問い合わせください。
+            座禅体験、法事・供養、永代供養墓、見学、その他お寺に関するご相談は、お問い合わせフォームよりご連絡ください。
           </p>
 
           <p>
-            お問い合わせ方法は、公式LINE・問い合わせフォーム等を整えたうえで掲載します。
+            内容がはっきり決まっていない段階でも構いません。分かる範囲でご記入ください。
           </p>
 
           <div class="contact-actions">
-            <a href="zazen.html">座禅体験を見る</a>
+            <a href="contact.html">お問い合わせフォームへ</a>
             <a class="secondary" href="access.html">アクセスを見る</a>
           </div>
         </div>
@@ -578,6 +739,7 @@
 
   <footer>
     <p>長善寺</p>
+    <p>〒520-1803 滋賀県高島市マキノ町小荒路581</p>
     <p>&copy; Chozenji. All Rights Reserved.</p>
   </footer>
 </body>
