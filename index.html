@@ -111,23 +111,21 @@
     }
 
     .hero {
-      padding: 80px 24px 88px;
-      background:
-        linear-gradient(135deg, rgba(47, 79, 63, 0.96), rgba(36, 59, 48, 0.94));
-      color: var(--white);
-    }
-
-    .hero-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 46px;
+      min-height: 84vh;
+      padding: 150px 24px 90px;
+      display: flex;
       align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(28, 43, 34, 0.56), rgba(28, 43, 34, 0.56)),
+        url("images/hero.jpg") center center / cover no-repeat,
+        linear-gradient(135deg, #3f5f4c, #9c855d);
     }
 
     .hero-content {
-      max-width: 560px;
+      max-width: 860px;
     }
 
     .hero-sub {
@@ -135,26 +133,25 @@
       letter-spacing: 0.18em;
       margin: 0 0 14px;
       font-family: sans-serif;
-      color: rgba(255, 255, 255, 0.84);
     }
 
     .hero h1 {
-      font-size: clamp(42px, 7vw, 74px);
-      margin: 0 0 22px;
+      font-size: clamp(38px, 7vw, 72px);
+      margin: 0 0 18px;
       letter-spacing: 0.18em;
       font-weight: normal;
-      line-height: 1.25;
     }
 
     .hero-text {
       font-size: 18px;
-      margin: 0 0 32px;
+      margin: 0 auto 32px;
       line-height: 2;
-      color: rgba(255, 255, 255, 0.92);
+      max-width: 760px;
     }
 
     .button-area {
       display: flex;
+      justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
     }
@@ -178,34 +175,6 @@
       background: transparent;
       color: var(--white);
       border: 1px solid var(--white);
-    }
-
-    .hero-visual {
-      position: relative;
-    }
-
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 22px -18px -18px 22px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 18px;
-    }
-
-    .hero-visual img {
-      position: relative;
-      width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-      object-fit: cover;
-    }
-
-    .hero-caption {
-      margin: 12px 0 0;
-      font-size: 13px;
-      font-family: sans-serif;
-      color: rgba(255, 255, 255, 0.78);
-      text-align: right;
     }
 
     section {
@@ -447,24 +416,6 @@
     }
 
     @media (max-width: 960px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-content {
-        max-width: 760px;
-        text-align: center;
-        margin: 0 auto;
-      }
-
-      .button-area {
-        justify-content: center;
-      }
-
-      .hero-caption {
-        text-align: center;
-      }
-
       .guide-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -493,7 +444,8 @@
       }
 
       .hero {
-        padding: 56px 20px 66px;
+        min-height: 78vh;
+        padding: 175px 20px 72px;
       }
 
       .hero-sub {
@@ -502,10 +454,6 @@
 
       .hero-text {
         font-size: 16px;
-      }
-
-      .hero-visual::before {
-        display: none;
       }
 
       .button-area {
@@ -565,26 +513,19 @@
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <p class="hero-sub">滋賀県高島市のお寺</p>
+      <div class="hero-content">
+        <p class="hero-sub">滋賀県高島市のお寺</p>
 
-          <h1>長善寺</h1>
+        <h1>長善寺</h1>
 
-          <p class="hero-text">
-            座禅体験、法事・供養、永代供養墓のご相談など、<br>
-            長善寺に関するご案内をこちらにまとめています。
-          </p>
+        <p class="hero-text">
+          座禅体験、法事・供養、永代供養墓のご相談など、<br>
+          長善寺に関するご案内をこちらにまとめています。
+        </p>
 
-          <div class="button-area">
-            <a class="btn" href="zazen.html">座禅体験を見る</a>
-            <a class="btn btn-outline" href="contact.html">お問い合わせ</a>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <img src="images/kannon-main.jpg" alt="長善寺の境内に立つ観音像">
-          <p class="hero-caption">長善寺の境内に立つ観音像</p>
+        <div class="button-area">
+          <a class="btn" href="zazen.html">座禅体験を見る</a>
+          <a class="btn btn-outline" href="contact.html">お問い合わせ</a>
         </div>
       </div>
     </section>
