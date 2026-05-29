@@ -65,7 +65,7 @@
       white-space: nowrap;
     }
 
-    nav {
+    .site-nav {
       display: flex;
       gap: 18px;
       font-size: 0.95rem;
@@ -74,12 +74,25 @@
       justify-content: flex-end;
     }
 
-    nav a {
+    .site-nav a {
       padding-bottom: 3px;
       border-bottom: 1px solid transparent;
     }
 
-    nav a:hover {
+    .site-nav a:hover,
+    .site-nav a.current {
+      border-bottom: 1px solid var(--main);
+    }
+
+    .lang-link {
+      border: 1px solid var(--main);
+      border-radius: 999px;
+      padding: 2px 12px 3px;
+    }
+
+    .site-nav .lang-link:hover {
+      background: var(--main);
+      color: var(--white);
       border-bottom: 1px solid var(--main);
     }
 
@@ -87,7 +100,7 @@
       min-height: 360px;
       background:
         linear-gradient(rgba(30, 35, 28, 0.42), rgba(30, 35, 28, 0.42)),
-        url("images/grave-eitai.jpg") center/cover no-repeat;
+        url("images/grave1.jpg") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -140,8 +153,12 @@
 
     .lead {
       max-width: 780px;
-      margin: 0 auto;
+      margin: 0 auto 16px;
       font-size: 1.05rem;
+    }
+
+    .lead:last-child {
+      margin-bottom: 0;
     }
 
     .card {
@@ -216,6 +233,10 @@
       border-radius: 999px;
       font-size: 0.95rem;
       margin-top: 8px;
+    }
+
+    .button:hover {
+      opacity: 0.86;
     }
 
     .table-wrap {
@@ -364,7 +385,7 @@
         align-items: flex-start;
       }
 
-      nav {
+      .site-nav {
         justify-content: flex-start;
         gap: 12px 16px;
         font-size: 0.9rem;
@@ -402,15 +423,16 @@
   <header>
     <div class="header-inner">
       <a href="index.html" class="site-title">長善寺</a>
-<nav class="site-nav">
-  <a href="index.html#about">長善寺について</a>
-  <a href="zazen.html">座禅体験</a>
-  <a href="kuyo.html">法事・供養</a>
-  <a href="grave.html">永代供養墓</a>
-  <a href="access.html">アクセス</a>
-  <a href="index.html#contact">お問い合わせ</a>
-  <a href="対応する英語ページ.html" class="lang-link">English</a>
-</nav>
+
+      <nav class="site-nav">
+        <a href="index.html#about">長善寺について</a>
+        <a href="zazen.html">座禅体験</a>
+        <a href="kuyo.html">法事・供養</a>
+        <a href="grave.html" class="current">永代供養墓</a>
+        <a href="access.html">アクセス</a>
+        <a href="index.html#contact">お問い合わせ</a>
+        <a href="grave-en.html" class="lang-link">English</a>
+      </nav>
     </div>
   </header>
 
@@ -445,7 +467,7 @@
 
       <div class="grave-grid">
         <article class="grave-card">
-          <img src="images/grave-eitai.jpg" alt="長善寺の永代供養墓">
+          <img src="images/grave1.jpg" alt="長善寺の永代供養墓">
           <div class="grave-card-body">
             <h3>永代供養墓</h3>
             <p>
@@ -467,7 +489,7 @@
         </article>
 
         <article class="grave-card">
-          <img src="images/grave-private.jpg" alt="長善寺の個人墓">
+          <img src="images/grave2.jpg" alt="長善寺の個人墓">
           <div class="grave-card-body">
             <h3>個人墓</h3>
             <p>
