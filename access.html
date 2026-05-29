@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>アクセス | 長善寺</title>
+  <meta name="description" content="滋賀県高島市マキノ町小荒路にある長善寺へのアクセス案内です。住所、地図、駐車場についてご案内します。" />
 
   <style>
     :root {
@@ -42,25 +43,26 @@
     img {
       max-width: 100%;
       height: auto;
+      display: block;
     }
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.93);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
     .header-inner {
-      max-width: 1120px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .site-title {
@@ -71,35 +73,57 @@
       white-space: nowrap;
     }
 
-    nav {
+    .site-nav {
       display: flex;
-      gap: 20px;
-      font-size: 14px;
       align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      font-family: sans-serif;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    nav a {
+    .site-nav a {
       color: var(--text);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
     }
 
-    .language-link {
-      padding: 4px 10px;
+    .site-nav a:hover,
+    .site-nav a.current {
+      color: var(--sub);
+      border-bottom: 1px solid var(--sub);
+    }
+
+    .site-nav .language-link {
+      padding: 5px 12px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      font-family: sans-serif;
-      font-size: 12px;
+      background: var(--white);
       color: var(--main);
-      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .site-nav .language-link:hover {
+      background: var(--main);
+      color: var(--white);
+      border-color: var(--main);
     }
 
     .page-hero {
-      padding: 150px 24px 80px;
+      min-height: 430px;
+      padding: 86px 24px 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       color: var(--white);
       background:
-        linear-gradient(rgba(28, 43, 34, 0.58), rgba(28, 43, 34, 0.58)),
-        url("images/hero.jpg") center center / cover no-repeat,
-        linear-gradient(135deg, #3f5f4c, #9c855d);
+        linear-gradient(rgba(28, 43, 34, 0.48), rgba(28, 43, 34, 0.56)),
+        url("images/access-hero.jpg") center 42% / cover no-repeat;
+    }
+
+    .page-hero-content {
+      max-width: 820px;
     }
 
     .page-hero span {
@@ -121,6 +145,7 @@
       max-width: 760px;
       margin: 0 auto;
       font-size: 17px;
+      line-height: 2;
     }
 
     section {
@@ -167,14 +192,6 @@
       padding: 32px;
       border-radius: 14px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    }
-
-    .info-box p {
-      margin-top: 0;
-    }
-
-    .info-box p:last-child {
-      margin-bottom: 0;
     }
 
     .info-box dl {
@@ -292,6 +309,11 @@
       color: var(--main);
       font-weight: bold;
       font-family: sans-serif;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      opacity: 0.88;
     }
 
     .btn-outline {
@@ -312,7 +334,13 @@
       margin: 4px 0;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      .access-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
       .header-inner {
         display: block;
         text-align: center;
@@ -323,21 +351,25 @@
         font-size: 20px;
       }
 
-      nav {
+      .site-nav {
         margin-top: 10px;
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 11px;
+        gap: 10px 12px;
         font-size: 13px;
       }
 
-      .language-link {
-        font-size: 11px;
-        padding: 3px 9px;
+      .page-hero {
+        min-height: 360px;
+        padding: 64px 20px 58px;
+        background-position: center center;
       }
 
-      .page-hero {
-        padding: 175px 20px 72px;
+      .page-hero h1 {
+        font-size: clamp(30px, 8vw, 42px);
+      }
+
+      .page-hero p {
+        font-size: 16px;
       }
 
       section {
@@ -346,10 +378,6 @@
 
       .section-title h2 {
         font-size: 26px;
-      }
-
-      .access-layout {
-        grid-template-columns: 1fr;
       }
 
       .info-box,
@@ -370,25 +398,27 @@
     <div class="header-inner">
       <a class="site-title" href="index.html">長善寺</a>
 
-<nav class="site-nav">
-  <a href="index.html#about">長善寺について</a>
-  <a href="zazen.html">座禅体験</a>
-  <a href="kuyo.html">法事・供養</a>
-  <a href="grave.html">永代供養墓</a>
-  <a href="access.html">アクセス</a>
-  <a href="index.html#contact">お問い合わせ</a>
-  <a href="対応する英語ページ.html" class="lang-link">English</a>
-</nav>
+      <nav class="site-nav">
+        <a href="index.html#about">長善寺について</a>
+        <a href="zazen.html">座禅体験</a>
+        <a href="kuyo.html">法事・供養</a>
+        <a href="grave.html">永代供養墓</a>
+        <a href="access.html" class="current">アクセス</a>
+        <a href="contact.html">お問い合わせ</a>
+        <a href="access-en.html" class="language-link">English</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="page-hero">
-      <span>ACCESS</span>
-      <h1>アクセス</h1>
-      <p>
-        長善寺へお越しの方へ、住所・地図・駐車場についてのご案内です。
-      </p>
+      <div class="page-hero-content">
+        <span>ACCESS</span>
+        <h1>アクセス</h1>
+        <p>
+          長善寺へお越しの方へ、住所・地図・駐車場についてのご案内です。
+        </p>
+      </div>
     </section>
 
     <section>
@@ -485,7 +515,7 @@
         </p>
 
         <div class="button-area">
-          <a class="btn" href="index.html#contact">お問い合わせ案内へ</a>
+          <a class="btn" href="contact.html">お問い合わせフォームへ</a>
           <a class="btn btn-outline" href="index.html">トップへ戻る</a>
         </div>
       </div>
@@ -494,6 +524,7 @@
 
   <footer>
     <p>長善寺</p>
+    <p>〒520-1803 滋賀県高島市マキノ町小荒路581</p>
     <p>&copy; Chozenji. All Rights Reserved.</p>
   </footer>
 </body>
