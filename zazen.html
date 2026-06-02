@@ -402,13 +402,6 @@
       font-size: 22px;
     }
 
-    .price-main {
-      font-size: 28px;
-      color: var(--sub);
-      margin: 8px 0 12px;
-      line-height: 1.4;
-    }
-
     .price-card p,
     .price-card li {
       color: var(--muted);
@@ -462,6 +455,55 @@
 
     .notice p:last-child {
       margin-bottom: 0;
+    }
+
+    .related-activity {
+      background: #fbfaf6;
+    }
+
+    .profile-activity-box {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .business-card-images {
+      display: grid;
+      gap: 16px;
+    }
+
+    .business-card-images img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      background: var(--white);
+    }
+
+    .profile-activity-text h3 {
+      margin: 0 0 10px;
+      color: var(--main);
+      font-size: 24px;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+    }
+
+    .profile-activity-text .role {
+      margin: 0 0 18px;
+      color: var(--sub);
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+
+    .profile-activity-text p {
+      margin: 0 0 14px;
+      color: var(--muted);
     }
 
     .faq-list {
@@ -538,7 +580,8 @@
       .two-column,
       .two-column.reverse,
       .flow-layout,
-      .price-grid {
+      .price-grid,
+      .profile-activity-box {
         grid-template-columns: 1fr;
         gap: 28px;
       }
@@ -602,7 +645,8 @@
       }
 
       .info-box,
-      .notice {
+      .notice,
+      .profile-activity-box {
         padding: 26px;
       }
     }
@@ -688,7 +732,7 @@
         <div class="two-column reverse">
           <div class="text-block">
             <p>
-              長善寺の座禅体験では、大本山永平寺で4年半修行した副住職が、初めての方にも分かりやすく座り方を案内します。
+              長善寺の座禅体験では、大本山永平寺で4年半修行した住職が、初めての方にも分かりやすく座り方を案内します。
             </p>
 
             <p>
@@ -799,11 +843,11 @@
       </div>
     </section>
 
-    <section id="price">
+    <section id="participation">
       <div class="container">
         <div class="section-title">
-          <span>PRICE</span>
-          <h2>料金・実施内容</h2>
+          <span>PARTICIPATION</span>
+          <h2>参加について</h2>
         </div>
 
         <p class="lead">
@@ -814,12 +858,11 @@
         <div class="price-grid">
           <div class="price-card">
             <h3>個人・少人数の座禅体験</h3>
-            <p class="price-main">1組 6,000円〜</p>
             <ul>
-              <li>2名以上の場合：お一人 3,000円〜</li>
               <li>所要時間：約75〜90分</li>
               <li>人数目安：1〜6名程度</li>
               <li>椅子での参加も相談可</li>
+              <li>初めての方にも分かるように案内します</li>
             </ul>
           </div>
 
@@ -877,9 +920,6 @@
             <dt>足腰に不安がある方</dt>
             <dd>椅子での参加も相談できます。事前にお知らせください。</dd>
 
-            <dt>支払い</dt>
-            <dd>当面は当日現金での対応を予定しています。</dd>
-
             <dt>注意事項</dt>
             <dd>
               体調がすぐれない場合は無理をせず、事前にご連絡ください。
@@ -925,7 +965,7 @@
           <div class="price-card">
             <h3>企業研修・観光企画・出張</h3>
             <p>
-              企業研修、観光企画、宿泊施設や旅行関係の企画については、内容・人数・場所により個別にお見積もりします。
+              企業研修、観光企画、宿泊施設や旅行関係の企画については、内容・人数・場所により実施方法を個別にご相談ください。
             </p>
           </div>
         </div>
@@ -986,6 +1026,53 @@
       </div>
     </section>
 
+    <section class="related-activity" id="related-activity">
+      <div class="container">
+        <div class="section-title">
+          <span>RELATED ACTIVITIES</span>
+          <h2>関連する催し・活動について</h2>
+        </div>
+
+        <div class="profile-activity-box">
+          <div class="business-card-images">
+            <img src="images/card1.jpg" alt="遊べるお寺プロジェクト 久我光聖の名刺 表面" />
+            <img src="images/card2.jpg" alt="遊べるお寺プロジェクト 久我光聖の名刺 裏面" />
+          </div>
+
+          <div class="profile-activity-text">
+            <h3>遊べるお寺プロジェクト</h3>
+            <p class="role">
+              久我 光聖｜住職・社会福祉士・保育士
+            </p>
+
+            <p>
+              座禅体験に関心のある方には、朝のお寺時間など、お寺で静かに過ごす関連の催しをご案内できる場合があります。
+            </p>
+
+            <p>
+              また、長善寺の公式行事とは別に、久我光聖が取り組んでいる任意団体の活動として、
+              「遊べるお寺プロジェクト」があります。
+            </p>
+
+            <p>
+              お寺や地域の場を活かしながら、ボードゲーム会、健康麻雀、仏教カフェ、
+              相談活動、地域交流イベントなど、遊び・学び・交流の場づくりに取り組んでいます。
+            </p>
+
+            <p>
+              開催予定や詳しい活動内容は、遊べるお寺プロジェクトのページをご覧ください。
+            </p>
+
+            <div class="button-area" style="justify-content: flex-start; margin-top: 22px;">
+              <a class="btn btn-green" href="https://hoo263930-netizen.github.io/" target="_blank" rel="noopener">
+                遊べるお寺プロジェクトを見る
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="english-guide" id="english">
       <div class="container">
         <div class="section-title">
@@ -995,7 +1082,7 @@
 
         <p class="lead">
           外国人観光客向けの座禅体験は、英語ページに分けて案内しています。
-          簡単な英語での案内、料金、所要時間、予約方法については、英語ページをご確認ください。
+          簡単な英語での案内、体験内容、所要時間、予約方法については、英語ページをご確認ください。
         </p>
 
         <div class="button-area" style="margin-top: 28px;">
@@ -1091,3 +1178,4 @@
   </footer>
 </body>
 </html>
+```
