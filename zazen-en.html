@@ -1,30 +1,36 @@
-
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>法事・供養・祈祷のご相談 | 長善寺</title>
-  <meta name="description" content="滋賀県高島市マキノ町の長善寺では、檀家でない方からの法事・供養・祈祷のご相談も受け付けています。ご家族の法事、故人の供養、各種お参りについてご相談ください。">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Zazen Experience | Chozenji Temple</title>
+  <meta name="description" content="Zazen experience at Chozenji Temple in Makino, Takashima, Shiga. A beginner-friendly seated meditation experience guided by the deputy priest of Chozenji." />
 
   <style>
     :root {
-      --main: #3f4a3c;
-      --sub: #6f7b68;
-      --bg: #f7f5ef;
+      --main: #2f4f3f;
+      --main-dark: #243b30;
+      --sub: #8a6f45;
+      --bg: #f7f4ee;
       --white: #ffffff;
-      --line: #ddd8cc;
-      --accent: #8a6f4d;
-      --text: #2f302c;
+      --text: #2b2b2b;
+      --muted: #666666;
+      --line: rgba(0, 0, 0, 0.08);
+      --soft: #eee6da;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-family: Georgia, "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.8;
@@ -37,21 +43,23 @@
 
     img {
       max-width: 100%;
+      height: auto;
       display: block;
     }
 
     header {
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
       z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
     .header-inner {
-      max-width: 1080px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 14px 20px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -59,261 +67,515 @@
     }
 
     .site-title {
-      font-size: 1.25rem;
-      letter-spacing: 0.12em;
-      color: var(--main);
+      font-size: 22px;
       font-weight: bold;
+      letter-spacing: 0.08em;
+      color: var(--main);
       white-space: nowrap;
     }
 
-    nav {
+    .site-nav {
       display: flex;
+      align-items: center;
       gap: 18px;
-      font-size: 0.95rem;
-      color: var(--main);
+      font-size: 14px;
+      font-family: sans-serif;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
-    nav a {
+    .site-nav a {
+      color: var(--text);
       padding-bottom: 3px;
       border-bottom: 1px solid transparent;
     }
 
-    nav a:hover {
-      border-bottom: 1px solid var(--main);
+    .site-nav a:hover,
+    .site-nav a.current {
+      color: var(--sub);
+      border-bottom: 1px solid var(--sub);
+    }
+
+    .site-nav .language-link {
+      padding: 5px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--main);
+    }
+
+    .site-nav .language-link:hover {
+      background: var(--main);
+      color: var(--white);
+      border-color: var(--main);
     }
 
     .hero {
-      min-height: 360px;
-      background:
-        linear-gradient(rgba(30, 35, 28, 0.42), rgba(30, 35, 28, 0.42)),
-        url("images/kuyo.jpg") center/cover no-repeat;
+      min-height: 430px;
+      padding: 86px 24px 78px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: var(--white);
-      padding: 80px 20px;
+      background:
+        linear-gradient(rgba(28, 43, 34, 0.50), rgba(28, 43, 34, 0.58)),
+        url("images/zazen-hero.jpg") center center / cover no-repeat;
     }
 
     .hero-content {
-      max-width: 780px;
+      max-width: 880px;
     }
 
     .hero-sub {
-      font-size: 0.95rem;
+      font-size: 15px;
       letter-spacing: 0.16em;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      font-family: sans-serif;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      letter-spacing: 0.14em;
+      font-size: clamp(34px, 6vw, 64px);
       margin: 0 0 18px;
+      letter-spacing: 0.08em;
       font-weight: normal;
     }
 
-    .hero-text {
-      font-size: 1rem;
+    .hero-copy {
+      font-size: 18px;
+      margin: 0 auto 32px;
+      max-width: 760px;
       line-height: 2;
-      margin: 0;
     }
 
-    main {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 64px 20px 80px;
+    .button-area {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--main);
+      font-weight: bold;
+      font-family: sans-serif;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      opacity: 0.88;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--white);
+    }
+
+    .btn-green {
+      background: var(--main);
+      color: var(--white);
     }
 
     section {
-      margin-bottom: 72px;
+      padding: 80px 24px;
+      scroll-margin-top: 90px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .section-title {
       text-align: center;
-      color: var(--main);
-      font-size: 1.75rem;
-      letter-spacing: 0.12em;
-      margin: 0 0 28px;
+      margin-bottom: 40px;
+    }
+
+    .section-title span {
+      display: block;
+      color: var(--sub);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      font-family: sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin: 0;
       font-weight: normal;
+      letter-spacing: 0.08em;
+      color: var(--main);
     }
 
     .lead {
       max-width: 780px;
       margin: 0 auto;
-      font-size: 1.05rem;
+      text-align: center;
+      font-size: 17px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .two-column.reverse {
+      grid-template-columns: 1.1fr 1fr;
+    }
+
+    .text-block {
+      font-size: 17px;
+    }
+
+    .text-block p {
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    .photo-card {
+      position: relative;
+      min-height: 340px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      background: var(--soft);
+    }
+
+    .photo-card.tall {
+      min-height: 460px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+    }
+
+    .photo-card.contain img {
+      object-fit: contain;
+      background: #111111;
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      margin: 0;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--main);
+      font-size: 13px;
+      font-family: sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .photo-figure {
+      margin: 0;
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .photo-figure img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .photo-figure.contain img {
+      object-fit: contain;
+      background: #111111;
+    }
+
+    .photo-figure figcaption {
+      padding: 14px 18px 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-family: sans-serif;
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .cards.single {
+      grid-template-columns: 1fr;
+      max-width: 680px;
+      margin: 34px auto 0;
     }
 
     .card {
       background: var(--white);
-      border: 1px solid var(--line);
-      padding: 32px;
+      padding: 28px;
       border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
-    .grid {
+    .card h3 {
+      margin-top: 0;
+      color: var(--main);
+      font-size: 21px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .flow-layout {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .item h3 {
-      margin: 0 0 10px;
-      color: var(--main);
-      font-size: 1.15rem;
-    }
-
-    .item p {
-      margin: 0;
-    }
-
-    .menu-list {
-      display: grid;
-      gap: 18px;
-    }
-
-    .menu-item {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 26px 28px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    }
-
-    .menu-item h3 {
-      margin: 0 0 10px;
-      color: var(--main);
-      font-size: 1.25rem;
-      letter-spacing: 0.08em;
-    }
-
-    .menu-item p {
-      margin: 0;
-    }
-
-    .price-box {
-      background: #eee9dc;
-      border-left: 4px solid var(--accent);
-      padding: 22px 24px;
-      border-radius: 8px;
-    }
-
-    .price-box h3 {
-      margin: 0 0 10px;
-      color: var(--main);
-      font-size: 1.2rem;
-    }
-
-    .price-box p {
-      margin: 0;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 36px;
+      align-items: center;
     }
 
     .flow {
       display: grid;
-      gap: 16px;
-      counter-reset: flow;
+      gap: 18px;
     }
 
     .flow-item {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
       background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 22px 24px 22px 74px;
-      position: relative;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
-    .flow-item::before {
-      counter-increment: flow;
-      content: counter(flow);
-      position: absolute;
-      top: 22px;
-      left: 24px;
-      width: 34px;
-      height: 34px;
+    .flow-number {
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
+      display: grid;
+      place-items: center;
       background: var(--main);
       color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
+      font-family: sans-serif;
+      font-weight: bold;
     }
 
     .flow-item h3 {
-      margin: 0 0 6px;
+      margin: 0 0 8px;
       color: var(--main);
-      font-size: 1.1rem;
+      font-size: 20px;
     }
 
     .flow-item p {
       margin: 0;
+      color: var(--muted);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .price-card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-top: 4px solid var(--main);
+    }
+
+    .price-card h3 {
+      margin: 0 0 12px;
+      color: var(--main);
+      font-size: 22px;
+    }
+
+    .price-card p,
+    .price-card li {
+      color: var(--muted);
+    }
+
+    .price-card ul {
+      padding-left: 1.2em;
+      margin-bottom: 0;
+    }
+
+    .info-box {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 14px;
+      max-width: 840px;
+      margin: 0 auto;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .info-box dl {
+      margin: 0;
+    }
+
+    .info-box dt {
+      font-weight: bold;
+      color: var(--main);
+      margin-top: 18px;
+    }
+
+    .info-box dt:first-child {
+      margin-top: 0;
+    }
+
+    .info-box dd {
+      margin-left: 0;
+      color: var(--muted);
+    }
+
+    .notice {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      border-left: 4px solid var(--sub);
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: 12px;
+    }
+
+    .notice p {
+      margin: 0 0 14px;
+    }
+
+    .notice p:last-child {
+      margin-bottom: 0;
+    }
+
+    .related-activity {
+      background: #fbfaf6;
+    }
+
+    .profile-activity-box {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .business-card-images {
+      display: grid;
+      gap: 16px;
+    }
+
+    .business-card-images img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      background: var(--white);
+    }
+
+    .profile-activity-text h3 {
+      margin: 0 0 10px;
+      color: var(--main);
+      font-size: 24px;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+    }
+
+    .profile-activity-text .role {
+      margin: 0 0 18px;
+      color: var(--sub);
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+
+    .profile-activity-text p {
+      margin: 0 0 14px;
+      color: var(--muted);
     }
 
     .faq-list {
       display: grid;
-      gap: 18px;
+      gap: 14px;
+      max-width: 880px;
+      margin: 0 auto;
     }
 
-    .faq-item h3 {
-      margin: 0 0 8px;
+    details {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    summary {
+      cursor: pointer;
       color: var(--main);
-      font-size: 1.08rem;
+      font-weight: bold;
+      font-size: 17px;
     }
 
-    .faq-item p {
-      margin: 0;
+    details p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .english-guide {
+      background: var(--soft);
     }
 
     .cta {
       text-align: center;
       background: var(--main);
       color: var(--white);
-      padding: 44px 28px;
-      border-radius: 18px;
     }
 
-    .cta h2 {
-      margin: 0 0 16px;
-      font-size: 1.6rem;
-      font-weight: normal;
-      letter-spacing: 0.1em;
+    .cta .section-title span,
+    .cta .section-title h2 {
+      color: var(--white);
     }
 
     .cta p {
-      margin: 0 auto 24px;
-      max-width: 680px;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      font-size: 17px;
     }
 
-    .button-wrap {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-block;
+    .cta .btn {
       background: var(--white);
       color: var(--main);
-      padding: 12px 28px;
-      border-radius: 999px;
-      font-weight: bold;
+    }
+
+    .cta .btn-outline {
+      background: transparent;
+      color: var(--white);
       border: 1px solid var(--white);
     }
 
-    .button.secondary {
-      background: transparent;
-      color: var(--white);
-    }
-
     footer {
-      background: #2f352c;
+      background: var(--main-dark);
       color: var(--white);
       text-align: center;
-      padding: 28px 20px;
-      font-size: 0.9rem;
+      padding: 34px 24px;
+      font-size: 14px;
     }
 
     footer p {
@@ -321,38 +583,78 @@
     }
 
     @media (max-width: 900px) {
-      .grid {
+      .two-column,
+      .two-column.reverse,
+      .flow-layout,
+      .price-grid,
+      .profile-activity-box {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .cards,
+      .photo-grid,
+      .cards.single {
         grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 820px) {
       .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        display: block;
+        text-align: center;
+        padding: 12px 18px;
       }
 
-      nav {
-        justify-content: flex-start;
-        gap: 12px 16px;
-        font-size: 0.9rem;
+      .site-title {
+        font-size: 20px;
+      }
+
+      .site-nav {
+        margin-top: 10px;
+        justify-content: center;
+        gap: 10px 12px;
+        font-size: 13px;
       }
 
       .hero {
-        min-height: 320px;
+        min-height: 360px;
+        padding: 64px 20px 58px;
+        background-position: center center;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: clamp(30px, 8vw, 44px);
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      section {
         padding: 64px 20px;
       }
 
-      main {
-        padding: 48px 18px 64px;
+      .section-title h2 {
+        font-size: 26px;
       }
 
-      .card {
-        padding: 24px;
+      .photo-card {
+        min-height: 260px;
       }
 
       .flow-item {
-        padding: 22px 20px 22px 68px;
+        grid-template-columns: 1fr;
+      }
+
+      .info-box,
+      .notice,
+      .profile-activity-box {
+        padding: 26px;
       }
     }
   </style>
@@ -361,243 +663,508 @@
 <body>
   <header>
     <div class="header-inner">
-      <a href="index.html" class="site-title">長善寺</a>
-<nav class="site-nav">
-  <a href="index.html#about">長善寺について</a>
-  <a href="zazen.html">座禅体験</a>
-  <a href="kuyo.html">法事・供養</a>
-  <a href="grave.html">永代供養墓</a>
-  <a href="access-en.html">アクセス</a>
-  <a href="index.html#contact">お問い合わせ</a>
-  <a href="対応する英語ページ.html" class="lang-link">English</a>
-</nav>
+      <a class="site-title" href="index-en.html">Chozenji</a>
+
+      <nav class="site-nav">
+        <a href="index-en.html#about">About Chozenji</a>
+        <a href="zazen-en.html" class="current">Zazen</a>
+        <a href="kuyo-en.html">Memorial Services</a>
+        <a href="grave-en.html">Memorial Grave</a>
+        <a href="access-en.html">Access</a>
+        <a href="contact-en.html">Contact</a>
+        <a class="language-link" href="zazen.html">日本語</a>
+      </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-sub">KUYOU</div>
-      <h1>法事・供養・祈祷のご相談</h1>
-      <p class="hero-text">
-        檀家でない方からのご相談も受け付けています。<br>
-        ご家族の法事、故人の供養、各種お参りについて、状況に合わせてご案内します。
-      </p>
-    </div>
-  </section>
-
   <main>
-    <section>
-      <h2 class="section-title">長善寺でできること</h2>
-      <div class="card">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="hero-sub">Chozenji Temple, Takashima, Shiga</p>
+
+        <h1>Beginner-Friendly Zazen Experience</h1>
+
+        <p class="hero-copy">
+          Sit quietly, adjust your posture, and bring awareness to your breath.<br>
+          Spend a calm moment facing yourself in the quiet main hall of Chozenji.
+        </p>
+
+        <div class="button-area">
+          <a class="btn" href="contact-en.html">Contact / Reservation</a>
+          <a class="btn btn-outline" href="#flow">View the Flow</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>ABOUT</span>
+          <h2>Zazen at Chozenji</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="photo-card">
+            <img src="images/zazen1.jpg" alt="Zazen cushions arranged in the main hall of Chozenji Temple" />
+            <p class="photo-label">Zazen space at Chozenji</p>
+          </div>
+
+          <div class="text-block">
+            <p>
+              Chozenji offers zazen experiences by reservation for people who are new to seated meditation.
+            </p>
+
+            <p>
+              Zazen may sound strict or difficult, but this experience is not about forcing yourself to sit for a long time.
+              It is a simple opportunity to adjust your posture, bring awareness to your breathing, and sit quietly in a temple space.
+            </p>
+
+            <p>
+              At the beginning, we explain how to sit, how to place your hands, how to keep your posture, and how to breathe.
+              If sitting on the floor is difficult, please ask us about chair seating in advance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="priest">
+      <div class="container">
+        <div class="section-title">
+          <span>GUIDE</span>
+          <h2>Guided by the Deputy Priest</h2>
+        </div>
+
+        <div class="two-column reverse">
+          <div class="text-block">
+            <p>
+              The zazen experience at Chozenji is guided by the deputy priest, who trained at Eiheiji Monastery for four and a half years.
+            </p>
+
+            <p>
+              This is not intended to reproduce full monastic training. Rather, it is a calm experience in which you can spend time adjusting your posture and breath in a quiet temple.
+            </p>
+
+            <p>
+              You do not need any prior knowledge of Buddhism or zazen.
+              Please feel free to contact us if you would like to try sitting quietly in a temple, even for the first time.
+            </p>
+          </div>
+
+          <div class="photo-card tall">
+            <img src="images/zazen2.jpg" alt="The deputy priest explaining posture for zazen in the main hall of Chozenji" />
+            <p class="photo-label">Guidance on posture and sitting</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="for">
+      <div class="container">
+        <div class="section-title">
+          <span>FOR VISITORS</span>
+          <h2>Recommended For</h2>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>First-time zazen visitors</h3>
+            <p>
+              You do not need to know the formal rules in advance. We will explain the basics of sitting and breathing step by step.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Those seeking quiet time</h3>
+            <p>
+              You can step away from daily life and spend time settling your body and mind in a quiet temple atmosphere.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Individuals and small groups</h3>
+            <p>
+              Individuals, couples, friends, and small groups are welcome by reservation. The content can be adjusted in advance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="flow">
+      <div class="container">
+        <div class="section-title">
+          <span>FLOW</span>
+          <h2>Experience Flow</h2>
+        </div>
+
+        <div class="flow-layout">
+          <div class="flow">
+            <div class="flow-item">
+              <div class="flow-number">1</div>
+              <div>
+                <h3>Reception and guidance to the main hall</h3>
+                <p>
+                  After arriving at Chozenji, you will be guided to the main hall. We will briefly explain the overall flow of the experience.
+                </p>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-number">2</div>
+              <div>
+                <h3>Explanation of posture and breathing</h3>
+                <p>
+                  We explain how to sit, where to place your hands, how to keep your posture, and how to breathe in a beginner-friendly way.
+                </p>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-number">3</div>
+              <div>
+                <h3>Zazen</h3>
+                <p>
+                  You will sit quietly for a manageable amount of time. Breaks can be included if needed.
+                </p>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-number">4</div>
+              <div>
+                <h3>Reflection and temple introduction</h3>
+                <p>
+                  After zazen, you may share what you felt or ask questions. A brief introduction to the temple can also be provided upon request.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/zazen3.jpg" alt="Zazen cushions arranged in a circle inside Chozenji Temple" />
+            <p class="photo-label">Adjustable for individuals and groups</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="participation">
+      <div class="container">
+        <div class="section-title">
+          <span>PARTICIPATION</span>
+          <h2>Participation</h2>
+        </div>
+
         <p class="lead">
-          長善寺では、檀家でない方からの法事・供養・祈祷に関するご相談も受け付けています。
-          お寺との付き合いがない方や、何をお願いすればよいか分からない方も、まずはご相談ください。
+          Zazen experiences for individuals and small groups are available by reservation.
+          Please note that we may not be able to accommodate your preferred date due to temple services or other events.
         </p>
+
+        <div class="price-grid">
+          <div class="price-card">
+            <h3>Individual and small-group zazen</h3>
+            <ul>
+              <li>Duration: about 75 to 90 minutes</li>
+              <li>Group size: about 1 to 6 people</li>
+              <li>Chair seating may be available upon request</li>
+              <li>Beginner-friendly guidance is provided</li>
+            </ul>
+          </div>
+
+          <div class="price-card">
+            <h3>What is included</h3>
+            <ul>
+              <li>Basic explanation of zazen</li>
+              <li>Guidance on posture and breathing</li>
+              <li>Zazen experience in the main hall</li>
+              <li>Time for reflection after the experience</li>
+              <li>A brief temple introduction if requested</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top: 34px;">
+          <p>
+            Chozenji is currently accepting zazen experiences on a trial basis.
+            Since the content may need to be adjusted depending on the number of participants and purpose of the visit, please contact us with your preferred date, number of participants, and purpose.
+          </p>
+          <p>
+            For inquiries in Japanese, please use the Japanese page.
+          </p>
+          <p>
+            <a class="btn btn-green" href="zazen.html">日本語ページへ</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="details">
+      <div class="container">
+        <div class="section-title">
+          <span>DETAILS</span>
+          <h2>Before You Join</h2>
+        </div>
+
+        <div class="info-box">
+          <dl>
+            <dt>Who can join</dt>
+            <dd>First-time zazen visitors, people seeking quiet time, individuals, and small groups.</dd>
+
+            <dt>Duration</dt>
+            <dd>About 75 to 90 minutes. The length may be adjusted depending on the content and number of participants.</dd>
+
+            <dt>Number of participants</dt>
+            <dd>Usually about 1 to 6 people. Please contact us in advance for larger groups.</dd>
+
+            <dt>Reservation</dt>
+            <dd>Please contact us at least 7 days before your preferred date whenever possible.</dd>
+
+            <dt>Clothing</dt>
+            <dd>Please wear comfortable clothes that are easy to sit and move in. We recommend avoiding tight clothing.</dd>
+
+            <dt>If sitting on the floor is difficult</dt>
+            <dd>Chair seating may be available. Please let us know in advance.</dd>
+
+            <dt>Notes</dt>
+            <dd>
+              If you are not feeling well, please do not push yourself and contact us in advance.
+              We may not be able to accommodate your preferred date due to temple services, events, or local activities.
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="group">
+      <div class="container">
+        <div class="section-title">
+          <span>GROUP / OUTREACH</span>
+          <h2>Group and Outreach Inquiries</h2>
+        </div>
+
         <p class="lead">
-          ご家族の状況、故人との関係、ご希望の場所や日程を伺いながら、必要な内容をご案内します。
+          In addition to zazen experiences at Chozenji, we also accept inquiries about zazen experiences for local groups, welfare-related groups, educational groups, training programs, and exchange events, depending on the content.
         </p>
-      </div>
-    </section>
 
-    <section>
-      <h2 class="section-title">このようなご相談</h2>
+        <div class="photo-grid">
+          <figure class="photo-figure">
+            <img src="images/zazen4.JPG" alt="A zazen session for parents and children with an explanation by the priest" />
+            <figcaption>Zazen sessions for parents, children, and local groups can be discussed according to the participants.</figcaption>
+          </figure>
 
-      <div class="grid">
-        <div class="card item">
-          <h3>法事・年忌法要</h3>
-          <p>
-            一周忌、三回忌、七回忌など、ご家族の法事についてご相談いただけます。
-          </p>
+          <figure class="photo-figure contain">
+            <img src="images/zazen5.jpg" alt="Children experiencing zazen" />
+            <figcaption>For educational or children’s programs, the content can be adjusted according to age and group size.</figcaption>
+          </figure>
         </div>
 
-        <div class="card item">
-          <h3>故人の供養</h3>
-          <p>
-            大切な方を偲び、読経やお参りを通して供養したい方のご相談を受け付けています。
-          </p>
+        <div class="price-grid">
+          <div class="price-card">
+            <h3>Local, welfare, and educational groups</h3>
+            <p>
+              We will discuss a realistic format according to the purpose of the activity.
+              The content can be adjusted based on the venue, number of participants, target group, and purpose.
+            </p>
+          </div>
+
+          <div class="price-card">
+            <h3>Company training, tourism, and outreach</h3>
+            <p>
+              For company training, tourism programs, lodging facilities, or travel-related projects, please contact us with the content, number of participants, and location.
+            </p>
+          </div>
         </div>
 
-        <div class="card item">
-          <h3>お墓・お仏壇での読経</h3>
+        <div class="notice" style="margin-top: 34px;">
           <p>
-            お墓やお仏壇の前でのお参り、納骨に関する読経などについてご相談いただけます。
-          </p>
-        </div>
-
-        <div class="card item">
-          <h3>各種ご祈祷・ご祈願</h3>
-          <p>
-            家内安全、身体健全、心願成就など、各種ご祈祷・ご祈願についてご相談ください。
-          </p>
-        </div>
-
-        <div class="card item">
-          <h3>檀家でない方のご相談</h3>
-          <p>
-            お寺との付き合いがない方も、内容を伺いながらご案内します。
-          </p>
-        </div>
-
-        <div class="card item">
-          <h3>何を頼めばよいか分からない</h3>
-          <p>
-            供養や法事の内容が分からない段階でも、まずは状況をお聞かせください。
+            For outreach sessions, availability depends on travel time, preparation, and the conditions of the venue.
+            Please contact us with the purpose, number of participants, preferred date and time, and location.
           </p>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2 class="section-title">主なご案内内容</h2>
-
-      <div class="menu-list">
-        <div class="menu-item">
-          <h3>法事・年忌法要</h3>
-          <p>
-            ご命日や年忌に合わせて、長善寺本堂、ご自宅、お墓などで法要を行います。
-            日程や場所については、ご相談のうえ調整します。
-          </p>
+    <section id="custom">
+      <div class="container">
+        <div class="section-title">
+          <span>CUSTOM EXPERIENCE</span>
+          <h2>Customized Experiences</h2>
         </div>
 
-        <div class="menu-item">
-          <h3>ご先祖・故人の供養</h3>
-          <p>
-            ご先祖や故人を偲ぶための供養についてご相談いただけます。
-            特定の法事ではない場合も、内容を伺いながらご案内します。
-          </p>
+        <p class="lead">
+          In addition to the regular zazen experience, it may be possible to discuss experiences that combine zazen with local culture or other temple activities.
+          Availability depends on the content, number of participants, season, location, and temple schedule.
+        </p>
+
+        <div class="cards single">
+          <div class="card">
+            <h3>Shabutsu, Dharma talk, tea, and other options</h3>
+            <p>
+              If you would like to combine zazen with shabutsu, a short Dharma talk, tea time, or other temple-related activities, please contact us in advance.
+            </p>
+          </div>
         </div>
 
-        <div class="menu-item">
-          <h3>納骨に関するお参り</h3>
+        <div class="notice" style="margin-top: 34px;">
           <p>
-            納骨の際の読経や、永代供養墓・個人墓に関するお参りについてご相談いただけます。
+            These are not fixed programs that are always available.
+            Some requests may not be possible depending on the weather, venue, number of participants, and temple schedule.
           </p>
-        </div>
-
-        <div class="menu-item">
-          <h3>各種ご祈祷・ご祈願</h3>
           <p>
-            家内安全、身体健全、心願成就など、暮らしの節目に合わせたご祈祷・ご祈願についてご相談ください。
+            You are welcome to contact us even at the stage of asking, “Would this kind of experience be possible?”
           </p>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2 class="section-title">お布施・費用について</h2>
+    <section class="related-activity" id="related-activity">
+      <div class="container">
+        <div class="section-title">
+          <span>RELATED ACTIVITIES</span>
+          <h2>Related Activities</h2>
+        </div>
 
-      <div class="price-box">
-        <h3>費用の目安</h3>
+        <div class="profile-activity-box">
+          <div class="business-card-images">
+            <img src="images/card1.jpg" alt="Business card of Kuga Kosho and the Asoberu Otera Project, front side" />
+            <img src="images/card2.jpg" alt="Business card of Kuga Kosho and the Asoberu Otera Project, back side" />
+          </div>
+
+          <div class="profile-activity-text">
+            <h3>Asoberu Otera Project</h3>
+            <p class="role">
+              Kuga Kosho | Buddhist priest, certified social worker, nursery teacher
+            </p>
+
+            <p>
+              For people interested in zazen, we may also be able to introduce related events such as quiet morning time at the temple.
+            </p>
+
+            <p>
+              Separately from the official activities of Chozenji Temple, Kuga Kosho also works on a voluntary initiative called the “Asoberu Otera Project.”
+            </p>
+
+            <p>
+              This project uses temples and local spaces to create places for play, learning, exchange, consultation, and community activities, including board game gatherings, healthy mahjong, Buddhist café events, and local exchange events.
+            </p>
+
+            <p>
+              Please visit the Asoberu Otera Project website for current activities and event information.
+            </p>
+
+            <div class="button-area" style="justify-content: flex-start; margin-top: 22px;">
+              <a class="btn btn-green" href="https://hoo263930-netizen.github.io/" target="_blank" rel="noopener">
+                Visit Asoberu Otera Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="english-guide" id="japanese">
+      <div class="container">
+        <div class="section-title">
+          <span>JAPANESE</span>
+          <h2>Japanese Zazen Page</h2>
+        </div>
+
+        <p class="lead">
+          Information in Japanese is available on the Japanese zazen page.
+          If you prefer to read the details in Japanese, please use the button below.
+        </p>
+
+        <div class="button-area" style="margin-top: 28px;">
+          <a class="btn btn-green" href="zazen.html">日本語ページへ</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <span>FAQ</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Can beginners join?</summary>
+            <p>
+              Yes. This experience is designed for beginners. We explain how to sit and how to breathe from the basics.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is it okay if I cannot sit cross-legged?</summary>
+            <p>
+              Yes. You do not need to force yourself to sit cross-legged. If sitting on the floor is difficult, please ask about chair seating in advance.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do I need knowledge of Buddhism?</summary>
+            <p>
+              No. You can join without any prior knowledge of Buddhism or zazen. Please join as a quiet sitting experience.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can children join?</summary>
+            <p>
+              It depends on the age, number of children, and purpose of the experience. Please contact us in advance.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I take photos?</summary>
+            <p>
+              There are places where photography is allowed and places where it should be avoided. Please ask the priest on the day of your visit.
+            </p>
+          </details>
+
+          <details>
+            <summary>How many days in advance should I make a reservation?</summary>
+            <p>
+              Please contact us at least 7 days before your preferred date whenever possible. Last-minute requests may not be available.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I join with friends from overseas?</summary>
+            <p>
+              Yes. If English guidance is needed, please contact us in advance through the inquiry form.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <span>CONTACT</span>
+          <h2>Contact / Reservation</h2>
+        </div>
+
         <p>
-          内容、場所、準備の有無によって異なります。<br>
-          法事・供養・祈祷の費用については、ご相談時に内容を確認したうえでご案内します。
+          If you would like to inquire about a zazen experience, please contact us with your preferred date, number of participants, purpose of visit, and whether chair seating is needed.
         </p>
-        <p>
-          ※金額が決まっている内容については、後ほどここに掲載します。
-        </p>
-      </div>
-    </section>
 
-    <section>
-      <h2 class="section-title">ご相談の流れ</h2>
+        <a class="btn" href="contact-en.html">Go to Contact Form</a>
 
-      <div class="flow">
-        <div class="flow-item">
-          <h3>お問い合わせ</h3>
-          <p>
-            公式LINEまたはお問い合わせよりご連絡ください。
-            内容がまとまっていなくても構いません。
-          </p>
+        <div class="button-area" style="margin-top: 18px;">
+          <a class="btn btn-outline" href="zazen.html">日本語ページへ</a>
         </div>
-
-        <div class="flow-item">
-          <h3>内容の確認</h3>
-          <p>
-            法事、供養、祈祷の内容、希望される場所、日程などを伺います。
-          </p>
-        </div>
-
-        <div class="flow-item">
-          <h3>日程調整</h3>
-          <p>
-            ご希望を伺いながら、日時と場所を調整します。
-          </p>
-        </div>
-
-        <div class="flow-item">
-          <h3>法要・供養・祈祷</h3>
-          <p>
-            長善寺本堂、ご自宅、お墓など、内容に応じた場所で行います。
-          </p>
-        </div>
-
-        <div class="flow-item">
-          <h3>必要に応じて今後のご相談</h3>
-          <p>
-            お墓、納骨、今後の法事などについても、必要に応じてご案内します。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="section-title">よくあるご相談</h2>
-
-      <div class="card faq-list">
-        <div class="faq-item">
-          <h3>檀家でなくてもお願いできますか。</h3>
-          <p>
-            はい。檀家でない方からの法事・供養・祈祷のご相談も受け付けています。
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>何をお願いすればよいか分からなくても相談できますか。</h3>
-          <p>
-            はい。状況を伺いながら、必要な内容をご案内します。
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>自宅やお墓に来てもらえますか。</h3>
-          <p>
-            内容や場所によって対応できる場合があります。まずはご相談ください。
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>費用はどのくらいですか。</h3>
-          <p>
-            内容によって異なります。ご相談時に確認したうえでご案内します。
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>急ぎの場合も相談できますか。</h3>
-          <p>
-            日程によって対応できる場合があります。まずはご連絡ください。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="cta">
-      <h2>法事・供養・祈祷について相談する</h2>
-      <p>
-        檀家でない方も、まずはご相談ください。  
-        内容がはっきり決まっていない場合も、状況を伺いながらご案内します。
-      </p>
-
-      <div class="button-wrap">
-        <a href="index.html#contact" class="button">公式LINE・お問い合わせ</a>
-        <a href="access-en.html" class="button secondary">アクセスを見る</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>長善寺</p>
-    <p>〒520-1803 滋賀県高島市マキノ町小荒路581</p>
+    <p>Chozenji Temple</p>
+    <p>581 Koaraji, Makino-cho, Takashima, Shiga 520-1803, Japan</p>
+    <p>&copy; Chozenji. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
