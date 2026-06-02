@@ -1,1 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Memorial Services and Buddhist Prayers | Chozenji Temple</title>
+  <meta name="description" content="Chozenji Temple in Makino, Takashima, Shiga accepts inquiries about Buddhist memorial services, prayers, offerings, and related consultations, including from people who are not temple members." />
+
+  <style>
+    :root {
+      --main: #2f4f3f;
+      --main-dark: #243b30;
+      --sub: #8a6f45;
+      --bg: #f7f4ee;
+      --white: #ffffff;
+      --text: #2b2b2b;
+      --muted: #666666;
+      --line: rgba(0, 0, 0, 0.08);
+      --soft: #eee6da;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .site-title {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      color: var(--main);
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      font-family: sans-serif;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      color: var(--text);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.current {
+      color: var(--sub);
+      border-bottom: 1px solid var(--sub);
+    }
+
+    .site-nav .language-link {
+      padding: 5px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--main);
+    }
+
+    .site-nav .language-link:hover {
+      background: var(--main);
+      color: var(--white);
+      border-color: var(--main);
+    }
+
+    .hero {
+      min-height: 420px;
+      padding: 84px 24px 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(28, 43, 34, 0.52), rgba(28, 43, 34, 0.58)),
+        url("images/kuyo-hero.jpg") center center / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 860px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      margin-bottom: 14px;
+      font-family: sans-serif;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      margin: 0 0 20px;
+      letter-spacing: 0.08em;
+      font-weight: normal;
+    }
+
+    .hero-text {
+      font-size: 18px;
+      margin: 0 auto 30px;
+      max-width: 760px;
+      line-height: 2;
+    }
+
+    .button-area,
+    .button-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn,
+    .button {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--main);
+      font-weight: bold;
+      font-family: sans-serif;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover,
+    .button:hover {
+      opacity: 0.88;
+    }
+
+    .btn-outline,
+    .button.secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--white);
+    }
+
+    main {
+      padding: 80px 24px 0;
+    }
+
+    section {
+      padding: 0 0 80px;
+      scroll-margin-top: 90px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title span {
+      display: block;
+      color: var(--sub);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      font-family: sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin: 0;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      color: var(--main);
+    }
+
+    .lead {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      font-size: 17px;
+    }
+
+    .lead:last-child {
+      margin-bottom: 0;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .item h3 {
+      margin: 0 0 10px;
+      color: var(--main);
+      font-size: 21px;
+    }
+
+    .item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .menu-item {
+      background: var(--white);
+      padding: 26px 28px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-left: 4px solid var(--main);
+    }
+
+    .menu-item h3 {
+      margin: 0 0 10px;
+      color: var(--main);
+      font-size: 22px;
+      letter-spacing: 0.04em;
+    }
+
+    .menu-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .notice {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      border-left: 4px solid var(--sub);
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: 12px;
+    }
+
+    .notice h3 {
+      margin: 0 0 10px;
+      color: var(--main);
+      font-size: 22px;
+    }
+
+    .notice p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .notice p:last-child {
+      margin-bottom: 0;
+    }
+
+    .price-list {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 18px;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      background: var(--soft);
+      color: var(--text);
+    }
+
+    .price-item span:first-child {
+      color: var(--main);
+      font-weight: bold;
+    }
+
+    .price-item span:last-child {
+      white-space: nowrap;
+    }
+
+    .flow {
+      display: grid;
+      gap: 18px;
+      max-width: 880px;
+      margin: 0 auto;
+      counter-reset: flow;
+    }
+
+    .flow-item {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 22px 24px 22px 82px;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .flow-item::before {
+      counter-increment: flow;
+      content: counter(flow);
+      position: absolute;
+      top: 22px;
+      left: 24px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--main);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+
+    .flow-item h3 {
+      margin: 0 0 8px;
+      color: var(--main);
+      font-size: 20px;
+    }
+
+    .flow-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    details {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--main);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    details p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .cta {
+      text-align: center;
+      background: var(--main);
+      color: var(--white);
+      padding: 56px 28px;
+      border-radius: 18px;
+      max-width: 1000px;
+      margin: 0 auto 80px;
+    }
+
+    .cta h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+    }
+
+    .cta p {
+      margin: 0 auto 28px;
+      max-width: 720px;
+      font-size: 17px;
+    }
+
+    footer {
+      background: var(--main-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 34px 24px;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .header-inner {
+        display: block;
+        text-align: center;
+        padding: 12px 18px;
+      }
+
+      .site-title {
+        font-size: 20px;
+      }
+
+      .site-nav {
+        margin-top: 10px;
+        justify-content: center;
+        gap: 10px 12px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 360px;
+        padding: 64px 20px 58px;
+        background-position: center center;
+      }
+
+      .hero-sub {
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: clamp(28px, 8vw, 40px);
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 64px 20px 0;
+      }
+
+      section {
+        padding-bottom: 64px;
+      }
+
+      .section-title h2,
+      .cta h2 {
+        font-size: 26px;
+      }
+
+      .card,
+      .notice {
+        padding: 26px;
+      }
+
+      .flow-item {
+        padding: 22px 20px 22px 74px;
+      }
+
+      .price-item {
+        display: block;
+      }
+
+      .price-item span {
+        display: block;
+      }
+
+      .price-item span:last-child {
+        margin-top: 4px;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="site-title" href="index-en.html">Chozenji</a>
+
+      <nav class="site-nav">
+        <a href="index-en.html#about">About Chozenji</a>
+        <a href="zazen-en.html">Zazen</a>
+        <a href="kuyo-en.html" class="current">Memorial Services</a>
+        <a href="grave-en.html">Memorial Grave</a>
+        <a href="access-en.html">Access</a>
+        <a href="contact-en.html">Contact</a>
+        <a class="language-link" href="kuyo.html">日本語</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-sub">MEMORIAL SERVICES</p>
+      <h1>Memorial Services and Buddhist Prayers</h1>
+      <p class="hero-text">
+        Chozenji accepts inquiries from people who are not temple members.<br>
+        Please contact us about family memorial services, prayers for the deceased, and other Buddhist services.
+      </p>
+      <div class="button-area">
+        <a class="btn" href="#contact">Contact Us</a>
+        <a class="btn btn-outline" href="#flow">View the Flow</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>ABOUT</span>
+          <h2>What Chozenji Can Offer</h2>
+        </div>
+
+        <div class="card">
+          <p class="lead">
+            Chozenji accepts inquiries about Buddhist memorial services, offerings, and prayers, including from people who are not temple members.
+            If you do not already have a connection with a temple, or if you are not sure what kind of service you need, please feel free to contact us.
+          </p>
+          <p class="lead">
+            We will ask about your family situation, your relationship with the deceased, and your preferred place and date, then guide you through the possible options.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="consultation">
+      <div class="container">
+        <div class="section-title">
+          <span>CONSULTATION</span>
+          <h2>Types of Consultation</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card item">
+            <h3>Annual memorial services</h3>
+            <p>
+              You can ask about family memorial services such as the first, third, seventh, and other anniversary services.
+            </p>
+          </div>
+
+          <div class="card item">
+            <h3>Prayers for the deceased</h3>
+            <p>
+              We accept inquiries from those who wish to honor and remember a loved one through sutra chanting and Buddhist prayer.
+            </p>
+          </div>
+
+          <div class="card item">
+            <h3>Sutra chanting at graves or home altars</h3>
+            <p>
+              Please contact us about prayers in front of a grave or family Buddhist altar, including sutra chanting related to interment.
+            </p>
+          </div>
+
+          <div class="card item">
+            <h3>Buddhist prayers and blessings</h3>
+            <p>
+              Please contact us about prayers for family safety, physical well-being, personal wishes, and other occasions.
+            </p>
+          </div>
+
+          <div class="card item">
+            <h3>For non-members</h3>
+            <p>
+              Even if you do not have an existing relationship with Chozenji, we can listen to your situation and explain possible options.
+            </p>
+          </div>
+
+          <div class="card item">
+            <h3>If you are not sure what to request</h3>
+            <p>
+              You may contact us even if you are not sure what kind of memorial service or prayer is appropriate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <div class="section-title">
+          <span>MENU</span>
+          <h2>Main Services</h2>
+        </div>
+
+        <div class="menu-list">
+          <div class="menu-item">
+            <h3>Annual memorial services</h3>
+            <p>
+              Memorial services can be held in the main hall of Chozenji, at your home, at a grave, or in another appropriate place.
+              The date and location will be arranged through consultation.
+            </p>
+          </div>
+
+          <div class="menu-item">
+            <h3>Memorial prayers for ancestors and the deceased</h3>
+            <p>
+              You can ask about prayers and offerings to remember ancestors or a deceased loved one.
+              Even if it is not a specific annual memorial service, we can listen to your situation and guide you.
+            </p>
+          </div>
+
+          <div class="menu-item">
+            <h3>Prayers related to interment</h3>
+            <p>
+              Please contact us about sutra chanting for interment, or prayers related to memorial graves and individual graves.
+            </p>
+          </div>
+
+          <div class="menu-item">
+            <h3>Buddhist prayers and blessings</h3>
+            <p>
+              Please contact us about prayers for family safety, physical well-being, personal wishes, and other important moments in daily life.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price">
+      <div class="container">
+        <div class="section-title">
+          <span>OFFERING</span>
+          <h2>Offerings and Fees</h2>
+        </div>
+
+        <div class="notice">
+          <h3>Suggested offerings</h3>
+          <p>
+            Buddhist offerings are generally given according to one’s circumstances and intention.
+            For first-time visitors, the following amounts are provided as a general guide.
+          </p>
+
+          <div class="price-list">
+            <div class="price-item">
+              <span>Memorial services / prayers</span>
+              <span>From 10,000 yen</span>
+            </div>
+            <div class="price-item">
+              <span>Sutra chanting at a grave</span>
+              <span>From 5,000 yen</span>
+            </div>
+          </div>
+
+          <p>
+            The actual amount may vary depending on the content, location, preparation, and other conditions.
+            Details will be explained after we confirm your situation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="flow">
+      <div class="container">
+        <div class="section-title">
+          <span>FLOW</span>
+          <h2>Consultation Flow</h2>
+        </div>
+
+        <div class="flow">
+          <div class="flow-item">
+            <h3>Contact us</h3>
+            <p>
+              Please contact us through the inquiry form.
+              It is fine if the details are not yet fully decided.
+            </p>
+          </div>
+
+          <div class="flow-item">
+            <h3>Confirm the details</h3>
+            <p>
+              We will ask about the type of memorial service, prayer, preferred place, date, and related details.
+            </p>
+          </div>
+
+          <div class="flow-item">
+            <h3>Arrange the date and place</h3>
+            <p>
+              We will adjust the date, time, and location while considering your wishes and the temple schedule.
+            </p>
+          </div>
+
+          <div class="flow-item">
+            <h3>Memorial service, prayer, or blessing</h3>
+            <p>
+              The service can be held in the main hall of Chozenji, at your home, at a grave, or another suitable place depending on the content.
+            </p>
+          </div>
+
+          <div class="flow-item">
+            <h3>Further consultation if needed</h3>
+            <p>
+              If needed, we can also discuss graves, interment, and future memorial services.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <span>FAQ</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Can I request a service even if I am not a temple member?</summary>
+            <p>
+              Yes. Chozenji accepts inquiries about memorial services, offerings, and prayers from people who are not temple members.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I ask even if I am not sure what kind of service I need?</summary>
+            <p>
+              Yes. We will listen to your situation and explain what may be appropriate.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can the priest come to my home or a grave?</summary>
+            <p>
+              Depending on the content and location, this may be possible. Please contact us first.
+            </p>
+          </details>
+
+          <details>
+            <summary>How much does it cost?</summary>
+            <p>
+              Offerings are generally given according to one’s circumstances and intention.
+              As a general guide, memorial services and prayers start from 10,000 yen, and sutra chanting at a grave starts from 5,000 yen.
+              The details may vary depending on the content, so we will explain them after consultation.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I ask for an urgent date?</summary>
+            <p>
+              Depending on the temple schedule, it may be possible. Please contact us first.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <h2>Contact Us About Memorial Services and Prayers</h2>
+      <p>
+        You are welcome to contact us even if you are not a temple member.
+        If the details are not yet clear, we can listen to your situation and explain possible options.
+      </p>
+
+      <div class="button-wrap">
+        <a href="contact-en.html" class="button">Go to Contact Form</a>
+        <a href="access-en.html" class="button secondary">View Access</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Chozenji Temple</p>
+    <p>581 Koaraji, Makino-cho, Takashima, Shiga 520-1803, Japan</p>
+    <p>&copy; Chozenji. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
